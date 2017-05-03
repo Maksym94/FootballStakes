@@ -1,55 +1,117 @@
 package models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="regular_commands")
 public class RegularCommandModelImpl implements CommandModel{
-
-	@Override
-	public void setCommandName(String name) {
+	
+	@Id
+	@Column(name="id_regular_command")
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int idRegularCommand;
+	
+	@Column(name="command_name")
+	private String commandName;
+	
+	@Column(name="history")
+	private String history;
+	
+	@Column(name="trainer_name")
+	private String trainerName;
+	
+	@Column(name="won_games")
+	private int wonGames;
+	
+	@Column(name="lose_games")
+	private int loseGames;
+	
+	@Column(name="draw_games")
+	private int drawGames;
+	
+	@Column(name="photo_path")
+	private String photoPath;
+	
+	@Column(name="year_foundation")
+	private int yearFoundation;
+	
+	public int getYearFoundation() {
+		return yearFoundation;
 	}
 
-	@Override
-	public void setHistory(String history) {
+	public void setYearFoundation(int yearFoundation) {
+		this.yearFoundation = yearFoundation;
 	}
 
-	@Override
-	public void setTrainerName(String trainer) {
+	public int getIdRegularCommand() {
+		return idRegularCommand;
 	}
 
-	@Override
-	public void setWonGames(int quantityOfWonGames) {
+	public void setIdRegularCommand(int idRegularCommand) {
+		this.idRegularCommand = idRegularCommand;
 	}
 
-	@Override
-	public void setLoseGames(int quantityOfLoseGames) {
-	}
-
-	@Override
 	public String getCommandName() {
-		
-		return null;
+		return commandName;
 	}
-
-	@Override
+	
+	public void setCommandName(String commandName) {
+		this.commandName = commandName;
+	}
+	
 	public String getHistory() {
-		
-		return null;
+		return history;
 	}
-
-	@Override
+	
+	public void setHistory(String history) {
+		this.history = history;
+	}
+	
 	public String getTrainerName() {
-		
-		return null;
+		return trainerName;
 	}
-
-	@Override
+	
+	public void setTrainerName(String trainerName) {
+		this.trainerName = trainerName;
+	}
+	
 	public int getWonGames() {
-		
-		return 0;
+		return wonGames;
 	}
-
-	@Override
+	
+	public void setWonGames(int wonGames) {
+		this.wonGames = wonGames;
+	}
+	
 	public int getLoseGames() {
-		
-		return 0;
+		return loseGames;
 	}
+	
+	public void setLoseGames(int loseGames) {
+		this.loseGames = loseGames;
+	}
+	
+	public int getDrawGames() {
+		return drawGames;
+	}
+	
+	public void setDrawGames(int drawGames) {
+		this.drawGames = drawGames;
+	}
+	
+	public String getPhotoPath() {
+		return photoPath;
+	}
+	
+	public void setPhotoPath(String photoPath) {
+		this.photoPath = photoPath;
+	}
+	
 
+	
 }
