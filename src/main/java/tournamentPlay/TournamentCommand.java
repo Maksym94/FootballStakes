@@ -1,7 +1,13 @@
 package tournamentPlay;
 
-import sharedPlay.Command;
+import models.TournamentCommandModelImpl;
 
-public interface TournamentCommand extends Command{
+public interface TournamentCommand {
+	
+	public void createCommand(TournamentCommandModelImpl command);
 
+	public void updateCommand(TournamentCommandModelImpl command);
+
+	public void deleteCommand(TournamentCommandModelImpl command);
+	
 }

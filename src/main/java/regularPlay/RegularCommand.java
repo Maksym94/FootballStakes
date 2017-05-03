@@ -1,8 +1,13 @@
 package regularPlay;
 
-import sharedPlay.Command;
+import models.RegularCommandModelImpl;
 
-public interface RegularCommand extends Command{
+public interface RegularCommand {
 
+	public void createCommand(RegularCommandModelImpl command);
+
+	public void updateCommand(RegularCommandModelImpl command);
+
+	public void deleteCommand(RegularCommandModelImpl command);
 
 }
