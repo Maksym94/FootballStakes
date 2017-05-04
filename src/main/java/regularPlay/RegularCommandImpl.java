@@ -21,10 +21,16 @@ public class RegularCommandImpl implements RegularCommand{
 		@SuppressWarnings("unchecked")
 		List<String> commandNames =template.getSessionFactory().openSession().
 		createQuery("select commandName from RegularCommandModelImpl order by id").list();
+		if(!command.getCommandName().trim().isEmpty()){
 		for (String commandName : commandNames) {
 			if(command.getCommandName().equalsIgnoreCase(commandName)){
 				return false;
 			}
+		}
+		}
+		if(command.getTrainerName().trim().isEmpty()
+				||command.getYearFoundation()==0){
+			return false;
 		}
 		template.save(command);
 		return true;
