@@ -21,8 +21,8 @@ import javax.swing.JPanel;
  *This class is fully responsible for resize picture. There two ways to resize picture smart 
  *and with constant ratio. Smart means that picture will save proportions from the origin 
  *picture. With constant ratio means that we specify horizontal and vertical size of the 
- *picture in pixels and it will be the same for all pictures that we will bind with the 
- *contact. For convenience was chosen second way with the constant radio of the picture.
+ *picture in pixels and it will be the same for all pictures . For convenience was chosen 
+ *second way with the constant radio of the picture.
  */
 public class ResizePicture extends JPanel{
 
@@ -49,7 +49,7 @@ public class ResizePicture extends JPanel{
 		 * deleting picture from the different contacts with the same name of origin picture
 		 * @return full path of the new location of the resize picture 
 		 */
-		protected String getNewImageLocation(String originalPath,String pathResources, 
+		public String getNewImageLocation(String originalPath,String pathResources, 
 				int finalIndex) {
 			String finalPath=originalPath;
 			try {
