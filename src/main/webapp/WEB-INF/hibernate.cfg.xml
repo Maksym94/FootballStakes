@@ -26,6 +26,8 @@
    
   <!-- Drop and re-create the database schema on startup -->
   <property name="hbm2ddl.auto">update</property>
+  
+  <mapping class="models.RegularCommandModelImpl"/>
    
  <!--  <mapping class="dbModels.Account"/>
   <mapping class="dbModels.Captcha"/>

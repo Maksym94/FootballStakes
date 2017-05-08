@@ -13,9 +13,9 @@
 </head>
 <body>
 <h3>Creating new regular command</h3><br>
-<form:form action="${contextPath}/regular" method="POST" modelAttribute="regularCommand" 
+<form:form action="${contextPath}/regular-command" method="POST" modelAttribute="regularCommand" 
 enctype="multipart/form-data">
-<table border="1" cellpadding="5">
+<table>
 <tr>
 <td><form:label path="commandName">Command name</form:label></td>
 <td><form:input path="commandName"/></td>
@@ -55,7 +55,7 @@ accept="image/jpeg,image/png,image/gif"></td>
 </tr>
 <tr>
 <td colspan="2">
-<input type="submit" value="not"/>    
+<input type="submit" value="Submit"/>    
 </td>
 </tr>
 </table>

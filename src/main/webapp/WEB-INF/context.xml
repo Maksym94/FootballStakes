@@ -32,29 +32,29 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 		<!-- <property name="annotatedClasses"></property> -->
 	</bean>
-	<bean class="systemServices.ResizePicture"></bean>
+	<bean id="resize" class="systemServices.ResizePicture"></bean>
 	
 	<bean id="regularUploadPath" class="systemServices.FileUploadPath">
-	<property name="uploadDirectory" value="D:/Java-resourses/Проекты_neon/FootballStakes/src/main/webapp/resources/pictures/regularPlay"></property>
+	<property name="uploadDirectory" value="/webapp/footballStakes/uploads/regularPlay"></property>
 	</bean>
 	
 	<bean id="tournamentUploadPath" class="systemServices.FileUploadPath">
-	<property name="temporaryUploadDirectory" value="D:/Java-resourses/Проекты_neon/FootballStakes/src/main/webapp/resources/pictures/temp"></property>
-	<property name="uploadDirectory" value="D:/Java-resourses/Проекты_neon/FootballStakes/src/main/webapp/resources/pictures/tournament"></property>
+	<property name="uploadDirectory" value="/webapp/footballStakes/uploads/tournament"></property>
 	</bean>
 	
 	<bean id="fileSystemResource" 
 	class="org.springframework.core.io.FileSystemResource" >
-	<constructor-arg  value="D:/Java-resourses/Проекты_neon/FootballStakes/src/main/webapp/resources/pictures/temp"></constructor-arg>
+	<constructor-arg  value="/webapp/footballStakes/uploads/temp/"></constructor-arg>
 	</bean>
 	
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<!-- <property name="maxUploadSize" value="0" /> -->
 		<property name="uploadTempDir" ref="fileSystemResource"></property>
 	</bean>
 	
-	<bean id="regularCommand" class="regularPlay.RegularCommandImpl"></bean>
+	<bean id="regularCommand" class="regularPlay.RegularCommandImpl">
+	<constructor-arg ref="template"></constructor-arg>
+	</bean>
 	
 	<!-- <bean id="accountInfo" class="dbModels.AccountInfoSpring">
 	<constructor-arg ref="template"></constructor-arg>
@@ -68,7 +68,6 @@
 	<bean id="adminDataBase" class="dbModels.AdminDataBaseSpring">
 	<constructor-arg ref="template"></constructor-arg>
 	</bean> -->
-
 	<context:annotation-config/>
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 </beans>

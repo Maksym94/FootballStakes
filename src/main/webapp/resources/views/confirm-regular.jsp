@@ -10,7 +10,7 @@
 </head>
 <body>
 <h3>Created regular command</h3><br>
-<img src="${regularCommand.photoPath}"><br>
+<img src="${regularCommand.photoPath}" height="128" width="128"><br>
 Command name: ${regularCommand.commandName}<br>
 History: ${regularCommand.history}<br>
 Trainer name: ${regularCommand.trainerName}<br>

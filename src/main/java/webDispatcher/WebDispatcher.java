@@ -24,7 +24,7 @@ public class WebDispatcher extends AbstractAnnotationConfigDispatcherServletInit
 		
 		return new String[]{"/"};
 	}
-
+	
 	@Override
 	protected FrameworkServlet createDispatcherServlet(WebApplicationContext servletAppContext) {
 		DispatcherServlet dispatcherServlet = new DispatcherServlet(servletAppContext);

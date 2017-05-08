@@ -6,7 +6,7 @@ import models.RegularCommandModelImpl;
 
 public interface RegularCommand {
 
-	public boolean createCommand(RegularCommandModelImpl command);
+	public boolean createCommand(RegularCommandModelImpl command, String resourcePath);
 
 	public void updateCommand(RegularCommandModelImpl command);
 

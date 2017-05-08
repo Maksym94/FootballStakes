@@ -69,10 +69,11 @@ public class ResizePicture extends JPanel{
 				g2d.dispose();
 				
 				if(finalPath.contains("\\")){
-					finalPath=pathResources
+					finalPath=pathResources+"\\"
 							+finalIndex+finalPath.substring(finalPath.lastIndexOf("\\")+1);}
-				else{finalPath=pathResources
+				else{finalPath=pathResources+"/"
 						+finalIndex+finalPath.substring(finalPath.lastIndexOf("/")+1);}
+				System.out.println("what is the path "+ finalPath);
 				
 			ImageIO.write(scaled, "jpg", new File(finalPath));
 			
@@ -82,6 +83,11 @@ public class ResizePicture extends JPanel{
 				ex.printStackTrace();
 			}
 			return finalPath;
+		}
+		
+		public String getImageShortPath(String fullPath){
+			return fullPath.substring(fullPath.indexOf("uploads"));
+			//return fullPath;
 		}
 
 		@Override

@@ -19,8 +19,10 @@ import systemServices.FileUploadPath;
 @Controller
 
 public class AdminNewRegularCommandContr {
+	
 	private File regularCommandPhotoPath;
 	
+	@Autowired
 	public AdminNewRegularCommandContr(FileUploadPath regularUploadPath) {
 		regularCommandPhotoPath = new File(regularUploadPath.getUploadDirectory());
 	}
@@ -28,20 +30,21 @@ public class AdminNewRegularCommandContr {
 	@Autowired
 	private RegularCommand regularCommandImpl;
 
-	@RequestMapping(name = "regular-command", method = RequestMethod.GET)
+	@RequestMapping(value = "/regular-command", method = RequestMethod.GET)
 	public String createRegularCommand(Model model) {
 		RegularCommandModelImpl regularCommand = new RegularCommandModelImpl();
 		model.addAttribute("regularCommand", regularCommand);
 		return "regular";
 	}
     
-	@RequestMapping(name="regular-command", method=RequestMethod.POST)
+	@RequestMapping(value="/regular-command", method=RequestMethod.POST)
 	public String confirmCreatingNewCommand(Model model,@ModelAttribute("regularCommand") 
-	RegularCommandModelImpl regularCommand,
+	RegularCommandModelImpl regularCommandModel,
 	@RequestPart("regularCommandPicture") MultipartFile regularCommandPicture ) {
 		if(!regularCommandPhotoPath.exists()){
 			regularCommandPhotoPath.mkdirs();
 		}
+		if(!regularCommandPicture.getOriginalFilename().isEmpty()){
 		File savePicture = new File(regularCommandPhotoPath.getAbsolutePath()+"/"
 		+regularCommandPicture.getOriginalFilename());
 		if(!savePicture.exists()&&!savePicture.isDirectory()){
@@ -51,12 +54,18 @@ public class AdminNewRegularCommandContr {
 				e.printStackTrace();
 			}
 		}
-		regularCommand.setPhotoPath(savePicture.getAbsolutePath());
-		if (regularCommandImpl.createCommand(regularCommand)) {
-			/*view.getPath().startsWith(getClass()
-					.getProtectionDomain().getCodeSource().getLocation()
-					.toURI().getPath()+"/resources/default.png")*/
-			model.addAttribute("regularCommand", regularCommand);
+		
+		regularCommandModel.setPhotoPath(savePicture.getAbsolutePath());
+		if (regularCommandImpl.createCommand(regularCommandModel,
+				regularCommandPhotoPath.getAbsolutePath())) {
+			model.addAttribute("regularCommand", regularCommandModel);
+			return "confirm-regular";
+		}
+		}
+		regularCommandModel.setPhotoPath(null);
+		if (regularCommandImpl.createCommand(regularCommandModel,
+				null)) {
+			model.addAttribute("regularCommand", regularCommandModel);
 			return "confirm-regular";
 		}
 		return "regular";

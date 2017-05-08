@@ -1,6 +1,7 @@
 CREATE DATABASE IF NOT EXISTS football_stakes;
+USE football_stakes;
 CREATE TABLE regular_commands(
-id_regular_command PRIMARY KEY NOT NULL AUTO_INCREMENT,
+id_regular_command INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
 command_name VARCHAR(50) NOT NULL,
 history VARCHAR(50),
 trainer_name VARCHAR(50) NOT NULL,

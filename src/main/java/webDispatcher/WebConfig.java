@@ -21,15 +21,15 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 	}
 	
 	@Override
-	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+	public void addResourceHandlers(final ResourceHandlerRegistry registry) {
+	    registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 	}
 @Bean
 public ViewResolver viewResolver(){
 	InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 	viewResolver.setPrefix("/resources/views/");
 	viewResolver.setSuffix(".jsp");
-	//viewResolver.setExposeContextBeansAsAttributes(true);
+	viewResolver.setExposeContextBeansAsAttributes(true);
 	return viewResolver;
 }
 	

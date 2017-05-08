@@ -1,6 +1,7 @@
 package regularPlay;
 
-import java.io.File;
+/*import java.io.File;
+import java.io.IOException;*/
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,18 +18,18 @@ public class RegularCommandImpl implements RegularCommand{
 	
 	private HibernateTemplate template;
 	
-	private final File resourcePath = new File("/src/main/resources/");
 	@Autowired
 	private ResizePicture resize;
 
 	
-	public RegularCommandImpl(HibernateTemplate template) {
+	public RegularCommandImpl(HibernateTemplate template){
 		this.template=template;
+		
 	}
     
 	@Transactional
 	@Override
-	public boolean createCommand(RegularCommandModelImpl command) {
+	public boolean createCommand(RegularCommandModelImpl command, String resourcePath) {
 		
 		@SuppressWarnings("unchecked")
 		List<Object[]> regularCommandIdName =template.getSessionFactory().openSession().
@@ -45,14 +46,17 @@ public class RegularCommandImpl implements RegularCommand{
 				||command.getYearFoundation()==0){
 			return false;
 		}
-		if(regularCommandIdName!=null&&!regularCommandIdName.isEmpty()){
+		if(regularCommandIdName!=null&&!regularCommandIdName.isEmpty()
+				&&command.getPhotoPath()!=null){
 			int lastId=(int) regularCommandIdName.get(regularCommandIdName.size()-1)[0];
-			command.setPhotoPath(resize.getNewImageLocation(command.getPhotoPath(),
-					resourcePath.getAbsolutePath() , ++lastId));
+			command.setPhotoPath(resize.getImageShortPath(resize
+					.getNewImageLocation(command.getPhotoPath(),
+					resourcePath , ++lastId)));
 		}
-		else{
-			command.setPhotoPath(resize.getNewImageLocation(command.getPhotoPath(),
-					resourcePath.getAbsolutePath(),1));
+		else if(command.getPhotoPath()!=null){
+			command.setPhotoPath(resize.getImageShortPath(resize.getNewImageLocation(command
+					.getPhotoPath(),
+					resourcePath,1)));
 		}
 		template.save(command);
 		return true;
