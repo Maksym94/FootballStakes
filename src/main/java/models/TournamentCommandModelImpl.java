@@ -24,9 +24,6 @@ public class TournamentCommandModelImpl implements CommandModel{
 	@Column(name="trainer")
 	private String trainerName;
 	
-	@Column(name="country_of_origin")
-	private String countryOfOrigin;
-	
 	@Column(name="year_foundation")
 	private int yearFoundation;
 	
@@ -38,6 +35,9 @@ public class TournamentCommandModelImpl implements CommandModel{
 	
 	@Column(name="lose_games")
 	private int loseGames;
+	
+	@Column(name="goals_scored")
+	private int goalsScored;
 	
 	@Column(name="winning_cups")
 	private int winningCups;
@@ -66,13 +66,6 @@ public class TournamentCommandModelImpl implements CommandModel{
 	public void setTrainerName(String trainerName) {
 		this.trainerName = trainerName;
 	}
-	public String getCountryOfOrigin() {
-		return countryOfOrigin;
-	}
-	public void setCountryOfOrigin(String countryOfOrigin) {
-		this.countryOfOrigin = countryOfOrigin;
-	}
-	
 	public int getYearFoundation() {
 		return yearFoundation;
 	}
@@ -97,6 +90,12 @@ public class TournamentCommandModelImpl implements CommandModel{
 	}
 	public void setLoseGames(int loseGames) {
 		this.loseGames = loseGames;
+	}
+	public int getGoalsScored() {
+		return goalsScored;
+	}
+	public void setGoalsScored(int goalsScored) {
+		this.goalsScored = goalsScored;
 	}
 	public int getWinningCups() {
 		return winningCups;

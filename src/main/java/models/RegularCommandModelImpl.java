@@ -1,10 +1,15 @@
 package models;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -25,6 +30,9 @@ public class RegularCommandModelImpl implements CommandModel{
 	@Column(name="trainer_name")
 	private String trainerName;
 	
+	@Column(name="country_of_origin")
+	private String countryOfOrigin;
+	
 	@Column(name="won_games")
 	private int wonGames;
 	
@@ -34,11 +42,18 @@ public class RegularCommandModelImpl implements CommandModel{
 	@Column(name="draw_games")
 	private int drawGames;
 	
+	@Column(name="goals_scored")
+	private int goalsScored;
+	
 	@Column(name="photo_path")
 	private String photoPath;
 	
 	@Column(name="year_foundation")
 	private int yearFoundation;
+	
+	@OneToMany
+	@JoinColumn(name="")
+	private Set<ReguralGameModelImpl> games;
 	
 	public int getYearFoundation() {
 		return yearFoundation;
@@ -80,6 +95,14 @@ public class RegularCommandModelImpl implements CommandModel{
 		this.trainerName = trainerName;
 	}
 	
+	public String getCountryOfOrigin() {
+		return countryOfOrigin;
+	}
+
+	public void setCountryOfOrigin(String countryOfOrigin) {
+		this.countryOfOrigin = countryOfOrigin;
+	}
+
 	public int getWonGames() {
 		return wonGames;
 	}
@@ -104,6 +127,14 @@ public class RegularCommandModelImpl implements CommandModel{
 		this.drawGames = drawGames;
 	}
 	
+	public int getGoalsScored() {
+		return goalsScored;
+	}
+
+	public void setGoalsScored(int goalsScored) {
+		this.goalsScored = goalsScored;
+	}
+
 	public String getPhotoPath() {
 		return photoPath;
 	}

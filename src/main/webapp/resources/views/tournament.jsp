@@ -29,10 +29,6 @@ modelAttribute="tournamentCommand" enctype="multipart/form-data">
 <td><form:input path="trainerName"/></td>
 </tr>
 <tr>
-<td><form:label path="countryOfOrigin">Country of origin</form:label></td>
-<td><form:input path="countryOfOrigin"/></td>
-</tr>
-<tr>
 <td><form:label path="yearFoundation">Year of foundation</form:label></td>
 <td><form:input path="yearFoundation"/></td>
 </tr>
@@ -52,6 +48,10 @@ accept="image/jpeg,image/png,image/gif"></td>
 <tr>
 <td><form:label path="loseGames">Lose games</form:label></td>
 <td><form:input path="loseGames"/></td>
+</tr>
+<tr>
+<td><form:label path="goalsScored">Goals scored</form:label></td>
+<td><form:input path="goalsScored"/></td>
 </tr>
 <tr>
 <td><form:label path="winningCups">Winning cups</form:label></td>

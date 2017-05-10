@@ -14,12 +14,11 @@
 Command name: ${tournamentCommand.commandName}<br>
 History: ${tournamentCommand.history}<br>
 Trainer name: ${tournamentCommand.trainerName}<br>
-Country of origin: ${tournamentCommand.countryOfOrigin}<br>
 Year of foundation: ${tournamentCommand.yearFoundation}<br>
 Won games: ${tournamentCommand.wonGames}<br>
 Lose games: ${tournamentCommand.loseGames}<br>
+Goals scored: ${tournamentCommand.goalsScored}<br>
 Winning cups: ${tournamentCommand.winningCups}<br>
 Photo path: ${tournamentCommand.photoPath}<br>
-
 </body>
 </html>

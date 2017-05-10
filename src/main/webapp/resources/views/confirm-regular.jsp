@@ -14,9 +14,11 @@
 Command name: ${regularCommand.commandName}<br>
 History: ${regularCommand.history}<br>
 Trainer name: ${regularCommand.trainerName}<br>
+Country of origin: ${regularCommand.countryOfOrigin}<br>
 Won games: ${regularCommand.wonGames}<br>
 Lose games: ${regularCommand.loseGames}<br>
 Draw games: ${regularCommand.drawGames}<br>
+Goals scored: ${regularCommand.goalsScored}<br>
 Photo path: ${regularCommand.photoPath}<br>
 Year of foundation: ${regularCommand.yearFoundation}<br>
 </body>

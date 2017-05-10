@@ -29,6 +29,10 @@ enctype="multipart/form-data">
 <td><form:input path="trainerName"/></td>
 </tr>
 <tr>
+<td><form:label path="countryOfOrigin">Country of origin</form:label></td>
+<td><form:input path="countryOfOrigin"/></td>
+</tr>
+<tr>
 <td><form:label path="wonGames">Won games</form:label></td>
 <td><form:input path="wonGames"/></td>
 </tr>
@@ -39,6 +43,10 @@ enctype="multipart/form-data">
 <tr>
 <td><form:label path="drawGames">Draw games</form:label></td>
 <td><form:input path="drawGames"/></td>
+</tr>
+<tr>
+<td><form:label path="goalsScored">Goals scored</form:label></td>
+<td><form:input path="goalsScored"/></td>
 </tr>
 <tr>
 <td><label>Profile Picture</label></td>
@@ -63,3 +71,4 @@ accept="image/jpeg,image/png,image/gif"></td>
 </form:form>
 </body>
 </html>
+
