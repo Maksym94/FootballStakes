@@ -27,6 +27,12 @@ public class TournamentCommandModelImpl implements CommandModel{
 	@Column(name="country_of_origin")
 	private String countryOfOrigin;
 	
+	@Column(name="year_foundation")
+	private int yearFoundation;
+	
+	@Column(name="photo_path")
+	private String photoPath;
+	
 	@Column(name="won_games")
 	private int wonGames;
 	
@@ -65,6 +71,20 @@ public class TournamentCommandModelImpl implements CommandModel{
 	}
 	public void setCountryOfOrigin(String countryOfOrigin) {
 		this.countryOfOrigin = countryOfOrigin;
+	}
+	
+	public int getYearFoundation() {
+		return yearFoundation;
+	}
+	public void setYearFoundation(int yearFoundation) {
+		this.yearFoundation = yearFoundation;
+	}
+	
+	public String getPhotoPath() {
+		return photoPath;
+	}
+	public void setPhotoPath(String photoPath) {
+		this.photoPath = photoPath;
 	}
 	public int getWonGames() {
 		return wonGames;

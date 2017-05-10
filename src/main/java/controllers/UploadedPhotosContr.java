@@ -17,9 +17,11 @@ import systemServices.FileUploadPath;
 
 @Controller
 public class UploadedPhotosContr {
+	
 	@Autowired
 	private FileUploadPath regularUploadPath;
 	
+	@Autowired
 	private FileUploadPath tournamentUploadPath;
 
 	@RequestMapping(value ={ "/uploads/regularPlay/**","/uploads/tournament/**"},  

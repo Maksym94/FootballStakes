@@ -28,7 +28,7 @@
   <property name="hbm2ddl.auto">update</property>
   
   <mapping class="models.RegularCommandModelImpl"/>
-   
+   <mapping class="models.TournamentCommandModelImpl"/>
  <!--  <mapping class="dbModels.Account"/>
   <mapping class="dbModels.Captcha"/>
   <mapping class="dbModels.UserAccount"/>

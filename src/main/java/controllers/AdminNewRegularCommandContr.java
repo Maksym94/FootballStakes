@@ -38,7 +38,7 @@ public class AdminNewRegularCommandContr {
 	}
     
 	@RequestMapping(value="/regular-command", method=RequestMethod.POST)
-	public String confirmCreatingNewCommand(Model model,@ModelAttribute("regularCommand") 
+	public String confirmCreatingRegularCommand(Model model,@ModelAttribute("regularCommand") 
 	RegularCommandModelImpl regularCommandModel,
 	@RequestPart("regularCommandPicture") MultipartFile regularCommandPicture ) {
 		if(!regularCommandPhotoPath.exists()){
