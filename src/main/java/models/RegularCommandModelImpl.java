@@ -1,15 +1,10 @@
 package models;
 
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -50,10 +45,6 @@ public class RegularCommandModelImpl implements CommandModel{
 	
 	@Column(name="year_foundation")
 	private int yearFoundation;
-	
-	@OneToMany
-	@JoinColumn(name="")
-	private Set<ReguralGameModelImpl> games;
 	
 	public int getYearFoundation() {
 		return yearFoundation;
@@ -142,7 +133,5 @@ public class RegularCommandModelImpl implements CommandModel{
 	public void setPhotoPath(String photoPath) {
 		this.photoPath = photoPath;
 	}
-	
-
 	
 }

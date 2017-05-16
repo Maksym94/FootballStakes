@@ -81,17 +81,29 @@
 			<version>4.3.3.Final</version>
 		</dependency>
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.hibernate.common</groupId>
 			<artifactId>hibernate-commons-annotations</artifactId>
 			<version>4.0.4.Final</version>
-		</dependency>
-
+		</dependency> -->
+		
 		<dependency>
+    <groupId>org.hibernate.common</groupId>
+    <artifactId>hibernate-commons-annotations</artifactId>
+    <version>5.0.1.Final</version>
+</dependency>
+
+		<!-- <dependency>
 			<groupId>org.hibernate.javax.persistence</groupId>
 			<artifactId>hibernate-jpa-2.1-api</artifactId>
 			<version>1.0.0.FINAL</version>
-		</dependency>
+		</dependency> -->
+		
+		<dependency>
+    <groupId>org.hibernate.javax.persistence</groupId>
+    <artifactId>hibernate-jpa-2.1-api</artifactId>
+    <version>1.0.0.Draft-16</version>
+</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -145,6 +157,19 @@
     	<artifactId>joda-time</artifactId>
     	<version>2.9.4</version>
     </dependency>
+    
+   <!--  <dependency>
+  <groupId>org.jadira.usertype</groupId>
+  <artifactId>usertype.core</artifactId>
+  <version>3.1.0.CR10</version>
+</dependency> -->
+
+<dependency>
+    <groupId>org.jadira.usertype</groupId>
+    <artifactId>usertype.core</artifactId>
+    <version>6.0.1.GA</version>
+</dependency>
+
 	</dependencies>
 
 </project>

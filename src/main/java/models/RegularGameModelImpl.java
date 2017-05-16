@@ -10,11 +10,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
 
 @Entity
 @Table(name="regular_games")
-public class ReguralGameModelImpl implements GameModel{
+public class RegularGameModelImpl implements GameModel{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -33,7 +34,14 @@ public class ReguralGameModelImpl implements GameModel{
 	@Column(name="score_command2")
 	private int scoreCommand2;
 	
+	@Column(name="coefficient_first_command")
+	private double coefficientFirstCommand;
+	
+	@Column(name="coefficient_second_command")
+	private double coefficientSecondCommand;
+	
 	@Column(name="start_game_date")
+	@Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
 	private DateTime startGameDate;
 	
 	@Column(name="finished_game")
@@ -43,11 +51,11 @@ public class ReguralGameModelImpl implements GameModel{
 	private int resultOfGame;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="id_regular_command", referencedColumnName="id_command1")
+	@JoinColumn(name="id_command1", insertable=false, updatable=false)
 	private RegularCommandModelImpl regularCommand1;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="id_regular_command", referencedColumnName="id_command2")
+	@JoinColumn(name="id_command2", insertable=false, updatable=false)
 	private RegularCommandModelImpl regularCommand2;
 			
 	public int getIdRegularGame() {
@@ -79,6 +87,18 @@ public class ReguralGameModelImpl implements GameModel{
 	}
 	public void setScoreCommand2(int scoreCommand2) {
 		this.scoreCommand2 = scoreCommand2;
+	}
+	public double getCoefficientFirstCommand() {
+		return coefficientFirstCommand;
+	}
+	public void setCoefficientFirstCommand(double coefficientFirstCommand) {
+		this.coefficientFirstCommand = coefficientFirstCommand;
+	}
+	public double getCoefficientSecondCommand() {
+		return coefficientSecondCommand;
+	}
+	public void setCoefficientSecondCommand(double coefficientSecondCommand) {
+		this.coefficientSecondCommand = coefficientSecondCommand;
 	}
 	public DateTime getStartGameDate() {
 		return startGameDate;

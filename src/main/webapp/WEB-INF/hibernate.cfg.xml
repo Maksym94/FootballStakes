@@ -29,6 +29,9 @@
   
   <mapping class="models.RegularCommandModelImpl"/>
    <mapping class="models.TournamentCommandModelImpl"/>
+   <mapping class="models.RegularGameModelImpl"/>
+   <mapping class="models.RegularGoalsScoredModelImpl"/>
+   
  <!--  <mapping class="dbModels.Account"/>
   <mapping class="dbModels.Captcha"/>
   <mapping class="dbModels.UserAccount"/>

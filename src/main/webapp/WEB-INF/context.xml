@@ -60,6 +60,10 @@
 	<constructor-arg ref="template"></constructor-arg>
 	</bean>
 	
+	<bean id="regularGame" class="regularPlay.RegularGameImpl">
+	<constructor-arg ref="template"></constructor-arg>
+	</bean>
+	
 	<!-- <bean id="accountInfo" class="dbModels.AccountInfoSpring">
 	<constructor-arg ref="template"></constructor-arg>
 	</bean>
