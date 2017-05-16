@@ -41,7 +41,7 @@ public class RegularGameModelImpl implements GameModel{
 	private double coefficientSecondCommand;
 	
 	@Column(name="start_game_date")
-	@Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
+	@Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
 	private DateTime startGameDate;
 	
 	@Column(name="finished_game")
