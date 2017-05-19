@@ -18,11 +18,11 @@ public class AdminEditRegularGameContr {
 	@Autowired
 	private RegularGame regularGame;
 
-	@RequestMapping(value="/edit-regular-game", method= RequestMethod.GET)
-	public String showRegularCommandsToEdit(Model model){
+	@RequestMapping(value="/show-regular-games", method= RequestMethod.GET)
+	public String showRegulaGamesToEdit(Model model){
 		 List<RegularGameModelImpl> games= regularGame.getAllGames();
 		 model.addAttribute("regularGames", games);
-		return "editRegularGame";
+		return "showRegularGames";
 	}
 	
 	@RequestMapping(value="/show-regular-game/{id}")
