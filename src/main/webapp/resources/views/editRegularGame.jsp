@@ -9,19 +9,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Show about regular game</title>
+<title>Edit regular game</title>
 </head>
 <body>
-<h3> ${game.regularCommand1.commandName} VS
+<h3><b>Edit</b> ${game.regularCommand1.commandName} VS
 ${game.regularCommand2.commandName}</h3><br>
 
+<form:form action="${contextPath}/edit-regular-game" method="POST" modelAttribute="game">
 <table>
 <tr>
 <td>
-<img alt="command1" src="${contextPath}/${game.regularCommand1.photoPath}" height="128" width="128">
-</td>
-<td><img alt="command2" src="${contextPath}/${game.regularCommand2.photoPath}" height="128" width="128">
-</td> 
+<img alt="command1" src="${contextPath}/${game.regularCommand1.photoPath}" height="128" 
+width="128"></td>
+<td><img alt="command2" src="${contextPath}/${game.regularCommand2.photoPath}" height="128" 
+width="128"></td> 
 </tr>
 <tr>
 <td>${game.regularCommand1.commandName}</td>
@@ -51,17 +52,8 @@ yes
 </c:choose>
 </td>
 </tr>
-<tr><td><input type="button" value="Edit game" onmouseup="buttonColor(this)" 
-onclick="edit" onselect=""></td>
-<td><input type="button" value="Delete game" onmouseup="buttonColor(this)" 
-	onclick=""></td> 
-</tr>
 </table>
 
-<script>
-function buttonColor(x) {
-    x.style.background = "pink";
-}
-</script>
+</form:form>
 </body>
 </html>
