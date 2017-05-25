@@ -19,41 +19,53 @@ ${game.regularCommand2.commandName}</h3><br>
 <table>
 <tr>
 <td>
-<img alt="command1" src="${contextPath}/${game.regularCommand1.photoPath}" height="128" 
-width="128"></td>
-<td><img alt="command2" src="${contextPath}/${game.regularCommand2.photoPath}" height="128" 
-width="128"></td> 
+<form:input path="idRegularGame" readonly="true" disabled="true"   /><form:hidden 
+path="idRegularGame"/> </td>
 </tr>
 <tr>
-<td>${game.regularCommand1.commandName}</td>
-<td>${game.regularCommand2.commandName}</td>
+<td><form:label path="scoreCommand1">Score ${game.regularCommand1.commandName}</form:label> </td>
+<td><form:input path="scoreCommand1"/>  </td>
 </tr>
 <tr>
-<td>Score ${game.regularCommand1.commandName} </td><td>${game.scoreCommand1}</td>
+<td><form:label path="scoreCommand2">Score ${game.regularCommand2.commandName}</form:label> </td>
+<td><form:input path="scoreCommand2"/>  </td>
 </tr>
 <tr>
-<td>Score ${game.regularCommand2.commandName} </td><td>${game.scoreCommand2}</td>
+<td><form:label path="coefficientFirstCommand">Coefficient of ${game.regularCommand1.commandName}
+</form:label>  </td>
+<td><form:input path="coefficientFirstCommand"/>  </td>
 </tr>
 <tr>
-<td>Coefficient ${game.regularCommand1.commandName} </td><td>${game.coefficientFirstCommand}</td>
+<td><form:label path="coefficientSecondCommand">Coefficient of ${game.regularCommand2.commandName}
+</form:label>  </td>
+<td><form:input path="coefficientSecondCommand"/>  </td>
 </tr>
 <tr>
-<td>Coefficient ${game.regularCommand2.commandName} </td><td>${game.coefficientSecondCommand}</td>
+<td>    <input id="datetime24" data-format="DD-MM-YYYY HH:mm" 
+data-template="DD / MM / YYYY     HH : mm" name="datetime" value="${startDate}" type="text">
+   </td>
 </tr>
 <tr>
-<td>Start game date ${startDate}</td>
+<td><form:label path="finishedGame">Game finished:</form:label>  </td>
+<td><form:select path="finishedGame">
+<form:option value="false" label="no"></form:option>
+<form:option value="true" label="yes"></form:option>
+</form:select> </td>
 </tr>
 <tr>
-<td>Game finished: </td><td><c:choose>
-<c:when test="${game.finishedGame}">
-yes
-</c:when>
-<c:otherwise>no</c:otherwise>
-</c:choose>
-</td>
+<td><form:label path="resultOfGame">Result of game</form:label>  </td>
+<td> <form:select path="resultOfGame">
+<form:option value="-1" label="Won ${game.regularCommand1.commandName}"></form:option>
+<form:option value="1" label="Won ${game.regularCommand2.commandName}"></form:option>
+<form:option value="2" label="Draw"></form:option>
+</form:select> </td>
+</tr>
+<form:hidden path="idCommand1"/>
+<form:hidden path="idCommand2"/>
+<tr><td><input type="submit" value="Confirm"></td>
 </tr>
 </table>
-
 </form:form>
 </body>
 </html>
+

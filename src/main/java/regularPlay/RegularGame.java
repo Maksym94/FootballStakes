@@ -10,6 +10,8 @@ public interface RegularGame {
 	int SECOND_COMMAND_WON = 1;
 
 	boolean createGame(RegularGameModelImpl regularGame);
+	
+	boolean updateGame(RegularGameModelImpl regularGame);
 
 	void deleteGame(RegularGameModelImpl regularGame);
 

@@ -54,9 +54,12 @@ public class RegularGameImpl implements RegularGame{
 		template.save(regularGame);
 		return true;
 	}
+    
+    
     @Transactional
 	@Override
 	public void deleteGame(RegularGameModelImpl regularGame) {
+    	template.delete(regularGame);
 	}
 
 	@Override
@@ -76,6 +79,13 @@ public class RegularGameImpl implements RegularGame{
 	public RegularGameModelImpl getGame(int id) {
 		RegularGameModelImpl game= template.get(RegularGameModelImpl.class, id);
 		return game;
+	}
+
+	@Transactional
+	@Override
+	public boolean updateGame(RegularGameModelImpl regularGame) {
+		template.update(regularGame);
+		return true;
 	}
 
 }

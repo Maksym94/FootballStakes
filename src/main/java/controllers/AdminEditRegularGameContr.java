@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import models.RegularGameModelImpl;
 import regularPlay.RegularGame;
@@ -48,8 +49,16 @@ public class AdminEditRegularGameContr {
 	
 	@RequestMapping(value="/edit-regular-game", method=RequestMethod.POST)
 	public String confirmEditRegularGame(@ModelAttribute("game") RegularGameModelImpl game,
+			@RequestParam("datetime") String datetime,
 			Model model){
+		regularGame.updateGame(game);
 		
-		return "redirect:showRegularGame";
+		return "redirect:/show-regular-game/"+game.getIdRegularGame();
+	}
+	
+	@RequestMapping(value="/delete-regular-game/{id}")
+	public String deleteRegularGame(@PathVariable("id") int id){
+		regularGame.deleteGame(regularGame.getGame(id));
+		return "redirect:/show-regular-games";
 	}
 }

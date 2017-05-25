@@ -51,10 +51,14 @@ yes
 </c:choose>
 </td>
 </tr>
-<tr><td><input type="button" value="Edit game" onmouseup="buttonColor(this)" 
-onclick="edit" onselect=""></td>
-<td><input type="button" value="Delete game" onmouseup="buttonColor(this)" 
-	onclick=""></td> 
+<tr><td>
+<form action="${contextPath}/edit-regular-game/${game.idRegularGame}">
+<input  type="submit" value="Edit game" onmouseup="buttonColor(this)">
+</form></td>
+ <td><form action="${contextPath}/delete-regular-game/${game.idRegularGame}" >
+<input  type="submit" value="Delete game" onmouseup="buttonColor(this)">
+</form>
+</td> 
 </tr>
 </table>
 
