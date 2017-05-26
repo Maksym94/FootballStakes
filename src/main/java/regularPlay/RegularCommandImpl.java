@@ -63,7 +63,11 @@ public class RegularCommandImpl implements RegularCommand{
 	}
 	@Transactional
 	@Override
-	public void updateCommand(RegularCommandModelImpl command) {
+	public void updateCommand(RegularCommandModelImpl command, String resourcePath) {
+		if(!resourcePath.isEmpty()){
+			command.setPhotoPath(resize.getImageShortPath(resize.getNewImageLocation(
+					command.getPhotoPath(), resourcePath,command.getIdRegularCommand())));
+		}
 		template.update(command);
 	}
 	@Transactional
@@ -83,6 +87,12 @@ public class RegularCommandImpl implements RegularCommand{
 			commands = new ArrayList<>();
 		}
 		return commands;
+	}
+
+	@Override
+	public RegularCommandModelImpl getCommandById(int idCommand) {
+		RegularCommandModelImpl command = template.get(RegularCommandModelImpl.class, idCommand);
+		return command;
 	}
 
 }

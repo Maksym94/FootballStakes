@@ -31,7 +31,7 @@ public AdminNewTournamentCommandContr(FileUploadPath tournamentUploadPath) {
 	@RequestMapping(value="/tournament-command", method= RequestMethod.GET)
 	public String createTournamentCommand(Model model){
 		model.addAttribute("tournamentCommand",new TournamentCommandModelImpl());
-		return "tournament";
+		return "tournamentCommand";
 	}
 	
 	@RequestMapping(value="/tournament-command", method=RequestMethod.POST)
@@ -55,17 +55,18 @@ public AdminNewTournamentCommandContr(FileUploadPath tournamentUploadPath) {
 			if(tournamentCommandImpl.createCommand(tournamentModel, 
 					tournamentCommandPath.getAbsolutePath())){
 				model.addAttribute("tournamentCommand", tournamentModel);
-				return "confirm-tournament";
+				//return "confirm-tournamentCommand";
+				return "redirect:/show-regular-command/"+tournamentModel.getIdTournamentCommand();
 			}
 		}
 		
 		if(tournamentCommandImpl.createCommand(tournamentModel, 
 				null)){
 			model.addAttribute("tournamentCommand", tournamentModel);
-			return "confirm-tournament";
+			return "redirect:/show-regular-command/"+tournamentModel.getIdTournamentCommand();
 		}
 		
 		
-		return "tournament";
+		return "tournamentCommand";
 	}
 }

@@ -34,7 +34,7 @@ public class AdminNewRegularCommandContr {
 	public String createRegularCommand(Model model) {
 		RegularCommandModelImpl regularCommand = new RegularCommandModelImpl();
 		model.addAttribute("regularCommand", regularCommand);
-		return "regular";
+		return "regularCommand";
 	}
     
 	@RequestMapping(value="/regular-command", method=RequestMethod.POST)
@@ -59,15 +59,18 @@ public class AdminNewRegularCommandContr {
 		if (regularCommandImpl.createCommand(regularCommandModel,
 				regularCommandPhotoPath.getAbsolutePath())) {
 			model.addAttribute("regularCommand", regularCommandModel);
-			return "confirm-regular";
+			return"redirect:/show-regular-command/"+regularCommandModel.getIdRegularCommand();
 		}
 		}
+		else{
 		regularCommandModel.setPhotoPath(null);
 		if (regularCommandImpl.createCommand(regularCommandModel,
 				null)) {
 			model.addAttribute("regularCommand", regularCommandModel);
-			return "confirm-regular";
+			return"redirect:/show-regular-command/"+regularCommandModel.getIdRegularCommand();
 		}
-		return "regular";
+		}
+		
+		return "regularCommand";
 	}
 }

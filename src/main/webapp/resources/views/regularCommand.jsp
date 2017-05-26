@@ -54,10 +54,6 @@ enctype="multipart/form-data">
 accept="image/jpeg,image/png,image/gif"></td>
 </tr>
 <tr>
-<td><form:label path="photoPath">Photo path</form:label></td>
-<td><form:input path="photoPath"/></td>
-</tr>
-<tr>
 <td><form:label path="yearFoundation">Year of foundation</form:label></td>
 <td><form:input path="yearFoundation"/></td>
 </tr>

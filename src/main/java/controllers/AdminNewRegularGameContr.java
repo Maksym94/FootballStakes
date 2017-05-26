@@ -41,7 +41,7 @@ public class AdminNewRegularGameContr {
 		 regularGameModel.setStartGameDate(DateTime.parse(datetime,FORMATTER));   
 		if(regularGame.createGame(regularGameModel)){
 			model.addAttribute("regularGameModel", regularGameModel);
-			return "confirm-regularGame";
+			return "redirect:/show-regular-game/"+regularGameModel.getIdRegularGame();
 		}
 		return "regularGame";
 	}

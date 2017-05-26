@@ -18,6 +18,8 @@ import regularPlay.RegularGame;
 
 @Controller
 public class AdminEditRegularGameContr {
+	
+
 	private static final DateTimeFormatter FORMATTER = DateTimeFormat
 			.forPattern("dd-MM-yyyy HH:mm");
 	
@@ -49,10 +51,9 @@ public class AdminEditRegularGameContr {
 	
 	@RequestMapping(value="/edit-regular-game", method=RequestMethod.POST)
 	public String confirmEditRegularGame(@ModelAttribute("game") RegularGameModelImpl game,
-			@RequestParam("datetime") String datetime,
-			Model model){
+			@RequestParam("datetime") String datetime){
+		game.setStartGameDate(FORMATTER.parseDateTime(datetime));
 		regularGame.updateGame(game);
-		
 		return "redirect:/show-regular-game/"+game.getIdRegularGame();
 	}
 	
