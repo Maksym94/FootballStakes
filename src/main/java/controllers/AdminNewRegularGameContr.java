@@ -26,14 +26,14 @@ public class AdminNewRegularGameContr {
 	@Autowired
 	private RegularCommand regularCommand;
 	
-	@RequestMapping(value="/regular-game", method=RequestMethod.GET)
+	@RequestMapping(value="/new-regular-game", method=RequestMethod.GET)
 	public String createRegularGame(Model model){
 		model.addAttribute("allCommands", regularCommand.getCommands());
 		model.addAttribute("regularGameModel", new RegularGameModelImpl());
-		return "regularGame";
+		return "newRegularGame";
 	}
 	
-	@RequestMapping(value="/regular-game", method=RequestMethod.POST)
+	@RequestMapping(value="/new-regular-game", method=RequestMethod.POST)
 	public String confirmCreatingRegularGame(Model model, @ModelAttribute("regularGameModel") 
 	RegularGameModelImpl regularGameModel,
 	@RequestParam("datetime") String datetime){
@@ -43,7 +43,7 @@ public class AdminNewRegularGameContr {
 			model.addAttribute("regularGameModel", regularGameModel);
 			return "redirect:/show-regular-game/"+regularGameModel.getIdRegularGame();
 		}
-		return "regularGame";
+		return "newRegularGame";
 	}
 
 }

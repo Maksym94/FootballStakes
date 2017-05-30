@@ -64,6 +64,10 @@
 	<constructor-arg ref="template"></constructor-arg>
 	</bean>
 	
+	<bean id="tournamentGame" class="tournamentPlay.TournamentGameImpl">
+	<constructor-arg ref="template"></constructor-arg>
+	</bean>
+	
 	<!-- <bean id="accountInfo" class="dbModels.AccountInfoSpring">
 	<constructor-arg ref="template"></constructor-arg>
 	</bean>

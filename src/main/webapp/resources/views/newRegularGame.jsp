@@ -13,7 +13,8 @@
 </head>
 <body>
 <h3>Creating new regular game</h3><br>
-<form:form action="${contextPath}/regular-game" method="POST"  modelAttribute="regularGameModel">
+<form:form action="${contextPath}/new-regular-game" method="POST"  
+modelAttribute="regularGameModel">
 <table>
 <tr>
 <td><form:select path="idCommand1" title="Choose first command">

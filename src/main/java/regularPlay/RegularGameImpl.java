@@ -19,8 +19,6 @@ public class RegularGameImpl implements RegularGame{
 		this.template = template;
 	}
 
-	/*@Autowired
-	RegularCommand regularCommand;*/
     @Transactional
 	@Override
 	public boolean createGame(RegularGameModelImpl regularGame) {
@@ -83,9 +81,8 @@ public class RegularGameImpl implements RegularGame{
 
 	@Transactional
 	@Override
-	public boolean updateGame(RegularGameModelImpl regularGame) {
+	public void updateGame(RegularGameModelImpl regularGame) {
 		template.update(regularGame);
-		return true;
 	}
 
 }

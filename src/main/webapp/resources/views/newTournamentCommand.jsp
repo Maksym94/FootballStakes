@@ -9,12 +9,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>New regular command</title>
+<title>New tournament command</title>
 </head>
 <body>
-<h3>Creating new regular command</h3><br>
-<form:form action="${contextPath}/regular-command" method="POST" modelAttribute="regularCommand" 
-enctype="multipart/form-data">
+<h3>Creating new tournament command</h3><br>
+<form:form action="${contextPath}/new-tournament-command" method="POST" 
+modelAttribute="tournamentCommand" enctype="multipart/form-data">
 <table>
 <tr>
 <td><form:label path="commandName">Command name</form:label></td>
@@ -29,8 +29,17 @@ enctype="multipart/form-data">
 <td><form:input path="trainerName"/></td>
 </tr>
 <tr>
-<td><form:label path="countryOfOrigin">Country of origin</form:label></td>
-<td><form:input path="countryOfOrigin"/></td>
+<td><form:label path="yearFoundation">Year of foundation</form:label></td>
+<td><form:input path="yearFoundation"/></td>
+</tr>
+<tr>
+<td><label>Profile Picture</label></td>
+<td><input type="file" name="tournamentCommandPicture" 
+accept="image/jpeg,image/png,image/gif"></td>
+</tr>
+<tr>
+<td><form:label path="photoPath">Photo path</form:label></td>
+<td><form:input path="photoPath"/></td>
 </tr>
 <tr>
 <td><form:label path="wonGames">Won games</form:label></td>
@@ -41,21 +50,12 @@ enctype="multipart/form-data">
 <td><form:input path="loseGames"/></td>
 </tr>
 <tr>
-<td><form:label path="drawGames">Draw games</form:label></td>
-<td><form:input path="drawGames"/></td>
-</tr>
-<tr>
 <td><form:label path="goalsScored">Goals scored</form:label></td>
 <td><form:input path="goalsScored"/></td>
 </tr>
 <tr>
-<td><label>Profile Picture</label></td>
-<td><input type="file" name="regularCommandPicture" 
-accept="image/jpeg,image/png,image/gif"></td>
-</tr>
-<tr>
-<td><form:label path="yearFoundation">Year of foundation</form:label></td>
-<td><form:input path="yearFoundation"/></td>
+<td><form:label path="winningCups">Winning cups</form:label></td>
+<td><form:input path="winningCups"/></td>
 </tr>
 <tr>
 <td colspan="2">
@@ -63,8 +63,6 @@ accept="image/jpeg,image/png,image/gif"></td>
 </td>
 </tr>
 </table>
-
 </form:form>
 </body>
 </html>
-

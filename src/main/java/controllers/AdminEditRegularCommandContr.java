@@ -29,7 +29,7 @@ private File regularCommandPhotoPath;
 	}
     
 	@Autowired
-	RegularCommand regularCommand;
+	private RegularCommand regularCommand;
 	
 	@RequestMapping(value="/edit-regular-command/{id}")
 	public String editRegularCommand(@PathVariable("id") int id, Model model){
@@ -50,10 +50,10 @@ private File regularCommandPhotoPath;
 					e.printStackTrace();
 				}
 			}
-			File pictureToDelete=new File(regularCommandModel.getPhotoPath());
+			/*File pictureToDelete=new File(regularCommandModel.getPhotoPath());
 			if(pictureToDelete.exists()){
 				pictureToDelete.delete();
-			}
+			}*/
 			regularCommandModel.setPhotoPath(savePicture.getAbsolutePath());
 			regularCommand.updateCommand(regularCommandModel, 
 					regularCommandPhotoPath.getAbsolutePath());

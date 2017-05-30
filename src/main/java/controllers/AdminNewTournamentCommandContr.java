@@ -18,31 +18,31 @@ import tournamentPlay.TournamentCommand;
 
 @Controller
 public class AdminNewTournamentCommandContr {
-	private File tournamentCommandPath;
+	private File tournamentCommandPhotoPath;
 	
 	@Autowired
 	private TournamentCommand tournamentCommandImpl;
 	
 	@Autowired
 public AdminNewTournamentCommandContr(FileUploadPath tournamentUploadPath) {
-		tournamentCommandPath= new File(tournamentUploadPath.getUploadDirectory());
+		tournamentCommandPhotoPath= new File(tournamentUploadPath.getUploadDirectory());
 }
 	
-	@RequestMapping(value="/tournament-command", method= RequestMethod.GET)
+	@RequestMapping(value="/new-tournament-command", method= RequestMethod.GET)
 	public String createTournamentCommand(Model model){
 		model.addAttribute("tournamentCommand",new TournamentCommandModelImpl());
-		return "tournamentCommand";
+		return "newTournamentCommand";
 	}
 	
-	@RequestMapping(value="/tournament-command", method=RequestMethod.POST)
+	@RequestMapping(value="/new-tournament-command", method=RequestMethod.POST)
 	public String confirmCreatingTournamentCommand(Model model, 
 			@ModelAttribute("tournamentCommand")TournamentCommandModelImpl tournamentModel,
 			@RequestPart("tournamentCommandPicture")MultipartFile tournamentCommandPicture){
-		if(!tournamentCommandPath.exists()){
-			tournamentCommandPath.mkdirs();
+		if(!tournamentCommandPhotoPath.exists()){
+			tournamentCommandPhotoPath.mkdirs();
 		}
 		if(!tournamentCommandPicture.getOriginalFilename().isEmpty()){
-			File file = new File(tournamentCommandPath.getAbsolutePath()+"/"+
+			File file = new File(tournamentCommandPhotoPath.getAbsolutePath()+"/"+
 		tournamentCommandPicture.getOriginalFilename());
 			if(!file.exists()&&!file.isDirectory()){
 				try {
@@ -53,20 +53,19 @@ public AdminNewTournamentCommandContr(FileUploadPath tournamentUploadPath) {
 			}
 			tournamentModel.setPhotoPath(file.getAbsolutePath());
 			if(tournamentCommandImpl.createCommand(tournamentModel, 
-					tournamentCommandPath.getAbsolutePath())){
+					tournamentCommandPhotoPath.getAbsolutePath())){
 				model.addAttribute("tournamentCommand", tournamentModel);
 				//return "confirm-tournamentCommand";
-				return "redirect:/show-regular-command/"+tournamentModel.getIdTournamentCommand();
+				return "redirect:/show-tournament-command/"
+				+tournamentModel.getIdTournamentCommand();
 			}
 		}
 		
 		if(tournamentCommandImpl.createCommand(tournamentModel, 
 				null)){
 			model.addAttribute("tournamentCommand", tournamentModel);
-			return "redirect:/show-regular-command/"+tournamentModel.getIdTournamentCommand();
+			return "redirect:/show-tournament-command/"+tournamentModel.getIdTournamentCommand();
 		}
-		
-		
-		return "tournamentCommand";
+		return "newTournamentCommand";
 	}
 }

@@ -41,3 +41,17 @@ start_game_date DATETIME NOT NULL,
 finished_game BOOLEAN NOT NULL DEFAULT FALSE,
 result_of_game TINYINT(1)
 );
+
+CREATE TABLE IF NOT EXISTS tournament_games(
+id_tournament_game INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+id_command1 INT(11) NOT NULL,
+id_command2 INT(11) NOT NULL,
+score_command1 TINYINT(2) NOT NULL DEFAULT 0,
+score_command2 TINYINT(2) NOT NULL DEFAULT 0,
+coefficient_first_command DOUBLE(8,4) NOT NULL,
+coefficient_second_command DOUBLE(8,4) NOT NULL,
+start_game_date DATETIME NOT NULL,
+finished_game BOOLEAN NOT NULL DEFAULT FALSE,
+result_of_game TINYINT(1),
+id_tournament INT(11)
+);

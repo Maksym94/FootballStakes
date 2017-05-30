@@ -11,7 +11,7 @@ public interface RegularGame {
 
 	boolean createGame(RegularGameModelImpl regularGame);
 	
-	boolean updateGame(RegularGameModelImpl regularGame);
+	void updateGame(RegularGameModelImpl regularGame);
 
 	void deleteGame(RegularGameModelImpl regularGame);
 

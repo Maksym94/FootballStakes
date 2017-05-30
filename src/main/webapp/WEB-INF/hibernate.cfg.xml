@@ -31,6 +31,7 @@
    <mapping class="models.TournamentCommandModelImpl"/>
    <mapping class="models.RegularGameModelImpl"/>
    <mapping class="models.RegularGoalsScoredModelImpl"/>
+   <mapping class="models.TournamentGameModelImpl"/>
    
  <!--  <mapping class="dbModels.Account"/>
   <mapping class="dbModels.Captcha"/>

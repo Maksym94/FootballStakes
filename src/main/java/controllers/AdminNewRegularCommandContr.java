@@ -30,14 +30,14 @@ public class AdminNewRegularCommandContr {
 	@Autowired
 	private RegularCommand regularCommandImpl;
 
-	@RequestMapping(value = "/regular-command", method = RequestMethod.GET)
+	@RequestMapping(value = "/new-regular-command", method = RequestMethod.GET)
 	public String createRegularCommand(Model model) {
 		RegularCommandModelImpl regularCommand = new RegularCommandModelImpl();
 		model.addAttribute("regularCommand", regularCommand);
-		return "regularCommand";
+		return "newRegularCommand";
 	}
     
-	@RequestMapping(value="/regular-command", method=RequestMethod.POST)
+	@RequestMapping(value="/new-regular-command", method=RequestMethod.POST)
 	public String confirmCreatingRegularCommand(Model model,@ModelAttribute("regularCommand") 
 	RegularCommandModelImpl regularCommandModel,
 	@RequestPart("regularCommandPicture") MultipartFile regularCommandPicture ) {
@@ -71,6 +71,6 @@ public class AdminNewRegularCommandContr {
 		}
 		}
 		
-		return "regularCommand";
+		return "newRegularCommand";
 	}
 }

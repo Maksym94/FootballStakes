@@ -16,7 +16,7 @@
 <table>
 <tr>
 <td>
-<img alt="regularCommand" src="${contextPath}/${tournamentCommand.photoPath}" height="128" 
+<img alt="tournamentCommand" src="${contextPath}/${tournamentCommand.photoPath}" height="128" 
 width="128">
 </td>
 </tr>
@@ -42,10 +42,10 @@ width="128">
 <td>Winning cups: </td> <td>${tournamentCommand.winningCups}</td> 
 </tr>
 <tr><td>
-<form action="${contextPath}/edit-tournament-command/${tournamentCommand.idRegularCommand}">
+<form action="${contextPath}/edit-tournament-command/${tournamentCommand.idTournamentCommand}">
 <input  type="submit" value="Edit command" >
 </form></td>
- <td><form action="${contextPath}/delete-tournament-command/${tournamentCommand.idRegularCommand}">
+ <td><form action="${contextPath}/delete-tournament-command/${tournamentCommand.idTournamentCommand}">
 <input  type="submit" value="Delete command" >
 </form>
 </td> 
@@ -53,15 +53,3 @@ width="128">
 </table>
 </body>
 </html>
-
-<%-- h3>Created tournament command</h3><br>
-<img src="${tournamentCommand.photoPath}" height="128" width="128"><br>
-Command name: ${tournamentCommand.commandName}<br>
-History: ${tournamentCommand.history}<br>
-Trainer name: ${tournamentCommand.trainerName}<br>
-Year of foundation: ${tournamentCommand.yearFoundation}<br>
-Won games: ${tournamentCommand.wonGames}<br>
-Lose games: ${tournamentCommand.loseGames}<br>
-Goals scored: ${tournamentCommand.goalsScored}<br>
-Winning cups: ${tournamentCommand.winningCups}<br>
-Photo path: ${tournamentCommand.photoPath}<br> --%>

@@ -56,7 +56,11 @@ public class TournamentCommandImpl implements TournamentCommand{
     
     @Transactional
 	@Override
-	public void updateCommand(TournamentCommandModelImpl command) {
+	public void updateCommand(TournamentCommandModelImpl command, String resourcePath) {
+    	if(!resourcePath.isEmpty()){
+    		command.setPhotoPath(resize.getImageShortPath(resize.getNewImageLocation(
+    				command.getPhotoPath(), resourcePath, command.getIdTournamentCommand())));
+    	}
 		template.update(command);
 	}
     
@@ -77,6 +81,11 @@ public class TournamentCommandImpl implements TournamentCommand{
 			return new ArrayList<>();
 		}
 		return commands;
+	}
+
+	@Override
+	public TournamentCommandModelImpl getCommandById(int idCommand) {
+		return template.get(TournamentCommandModelImpl.class, idCommand);
 	}
 
 }
