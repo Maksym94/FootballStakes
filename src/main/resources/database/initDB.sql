@@ -55,3 +55,21 @@ finished_game BOOLEAN NOT NULL DEFAULT FALSE,
 result_of_game TINYINT(1),
 id_tournament INT(11)
 );
+
+CREATE TABLE IF NOT EXISTS tournament_stages(
+id_tournament_stage INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+id_tournament INT(11) NOT NULL,
+stage DOUBLE NOT NULL,
+active TINYINT(1) NOT NULL,
+finished_stage TINYINT(1) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS tournament(
+id_tournament INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+tournament_name VARCHAR(50) NOT NULL,
+year_of_playing INT(4) NOT NULL,
+maxAmountOfStages TINYINT(2) NOT NULL,
+maxAmountOfCommands TINYINT(2) NOT NULL,
+active TINYINT(1) NOT NULL,
+finished_tournament TINYINT(1) NOT NULL
+);

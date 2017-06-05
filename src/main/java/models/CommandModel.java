@@ -13,7 +13,5 @@ public interface CommandModel {
 	public String getTrainerName();
 	public int getWonGames();
 	public int getLoseGames();
-	
-	
 
 }

@@ -164,4 +164,64 @@ public void setTournamentCommand2(TournamentCommandModelImpl tournamentCommand2)
 	this.tournamentCommand2 = tournamentCommand2;
 }
 
+@Override
+public int hashCode() {
+	final int prime = 31;
+	int result = 1;
+	long temp;
+	temp = Double.doubleToLongBits(coefficientFirstCommand);
+	result = prime * result + (int) (temp ^ (temp >>> 32));
+	temp = Double.doubleToLongBits(coefficientSecondCommand);
+	result = prime * result + (int) (temp ^ (temp >>> 32));
+	result = prime * result + (finishedGame ? 1231 : 1237);
+	result = prime * result + idCommand1;
+	result = prime * result + idCommand2;
+	result = prime * result + idTournament;
+	result = prime * result + idTournamentGame;
+	result = prime * result + resultOfGame;
+	result = prime * result + scoreCommand1;
+	result = prime * result + scoreCommand2;
+	result = prime * result + ((startGameDate == null) ? 0 : startGameDate.hashCode());
+	return result;
+}
+
+@Override
+public boolean equals(Object obj) {
+	if (this == obj)
+		return true;
+	if (obj == null)
+		return false;
+	if (getClass() != obj.getClass())
+		return false;
+	TournamentGameModelImpl other = (TournamentGameModelImpl) obj;
+	if (Double.doubleToLongBits(coefficientFirstCommand) != 
+			Double.doubleToLongBits(other.coefficientFirstCommand))
+		return false;
+	if (Double.doubleToLongBits(coefficientSecondCommand) != 
+			Double.doubleToLongBits(other.coefficientSecondCommand))
+		return false;
+	if (finishedGame != other.finishedGame)
+		return false;
+	if (idCommand1 != other.idCommand1)
+		return false;
+	if (idCommand2 != other.idCommand2)
+		return false;
+	if (idTournament != other.idTournament)
+		return false;
+	if (idTournamentGame != other.idTournamentGame)
+		return false;
+	if (resultOfGame != other.resultOfGame)
+		return false;
+	if (scoreCommand1 != other.scoreCommand1)
+		return false;
+	if (scoreCommand2 != other.scoreCommand2)
+		return false;
+	if (startGameDate == null) {
+		if (other.startGameDate != null)
+			return false;
+	} else if (!startGameDate.equals(other.startGameDate))
+		return false;
+	return true;
+}
+
 }

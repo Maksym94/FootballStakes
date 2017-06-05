@@ -12,7 +12,9 @@
 <title>Show about tournament command</title>
 </head>
 <body>
+
 <h3>${tournamentCommand.commandName}</h3><br>
+
 <table>
 <tr>
 <td>

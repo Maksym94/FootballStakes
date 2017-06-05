@@ -103,5 +103,64 @@ public class TournamentCommandModelImpl implements CommandModel{
 	public void setWinningCups(int winningCups) {
 		this.winningCups = winningCups;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((commandName == null) ? 0 : commandName.hashCode());
+		result = prime * result + goalsScored;
+		result = prime * result + ((history == null) ? 0 : history.hashCode());
+		result = prime * result + idTournamentCommand;
+		result = prime * result + loseGames;
+		result = prime * result + ((photoPath == null) ? 0 : photoPath.hashCode());
+		result = prime * result + ((trainerName == null) ? 0 : trainerName.hashCode());
+		result = prime * result + winningCups;
+		result = prime * result + wonGames;
+		result = prime * result + yearFoundation;
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TournamentCommandModelImpl other = (TournamentCommandModelImpl) obj;
+		if (commandName == null) {
+			if (other.commandName != null)
+				return false;
+		} else if (!commandName.equals(other.commandName))
+			return false;
+		if (goalsScored != other.goalsScored)
+			return false;
+		if (history == null) {
+			if (other.history != null)
+				return false;
+		} else if (!history.equals(other.history))
+			return false;
+		if (idTournamentCommand != other.idTournamentCommand)
+			return false;
+		if (loseGames != other.loseGames)
+			return false;
+		if (photoPath == null) {
+			if (other.photoPath != null)
+				return false;
+		} else if (!photoPath.equals(other.photoPath))
+			return false;
+		if (trainerName == null) {
+			if (other.trainerName != null)
+				return false;
+		} else if (!trainerName.equals(other.trainerName))
+			return false;
+		if (winningCups != other.winningCups)
+			return false;
+		if (wonGames != other.wonGames)
+			return false;
+		if (yearFoundation != other.yearFoundation)
+			return false;
+		return true;
+	}
 
 }

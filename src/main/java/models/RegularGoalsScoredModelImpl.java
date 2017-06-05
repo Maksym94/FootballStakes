@@ -59,6 +59,35 @@ public class RegularGoalsScoredModelImpl {
 	public void setMinuteOfGoalScored(int minuteOfGoalScored) {
 		this.minuteOfGoalScored = minuteOfGoalScored;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + idRegularGame;
+		result = prime * result + idRegularGoalsScored;
+		result = prime * result + minuteOfGoalScored;
+		result = prime * result + regularIdCommand;
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RegularGoalsScoredModelImpl other = (RegularGoalsScoredModelImpl) obj;
+		if (idRegularGame != other.idRegularGame)
+			return false;
+		if (idRegularGoalsScored != other.idRegularGoalsScored)
+			return false;
+		if (minuteOfGoalScored != other.minuteOfGoalScored)
+			return false;
+		if (regularIdCommand != other.regularIdCommand)
+			return false;
+		return true;
+	}
 	
 	
 
