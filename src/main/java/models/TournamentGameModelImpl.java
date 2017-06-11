@@ -49,8 +49,8 @@ private boolean finishedGame;
 @Column(name="result_of_game")
 private int resultOfGame;
 
-@Column(name="id_tournament")
-private int idTournament;
+@Column(name="id_tournament_stage")
+private int idTournamentStage;
 
 @ManyToOne
 @JoinColumn(name="id_command1", insertable=false, updatable=false)
@@ -140,12 +140,12 @@ public void setResultOfGame(int resultOfGame) {
 	this.resultOfGame = resultOfGame;
 }
 
-public int getIdTournament() {
-	return idTournament;
+public int getIdTournamentStage() {
+	return idTournamentStage;
 }
 
-public void setIdTournament(int idTournament) {
-	this.idTournament = idTournament;
+public void setIdTournamentStage(int idTournamentStage) {
+	this.idTournamentStage = idTournamentStage;
 }
 
 public TournamentCommandModelImpl getTournamentCommand1() {
@@ -176,8 +176,8 @@ public int hashCode() {
 	result = prime * result + (finishedGame ? 1231 : 1237);
 	result = prime * result + idCommand1;
 	result = prime * result + idCommand2;
-	result = prime * result + idTournament;
 	result = prime * result + idTournamentGame;
+	result = prime * result + idTournamentStage;
 	result = prime * result + resultOfGame;
 	result = prime * result + scoreCommand1;
 	result = prime * result + scoreCommand2;
@@ -206,9 +206,9 @@ public boolean equals(Object obj) {
 		return false;
 	if (idCommand2 != other.idCommand2)
 		return false;
-	if (idTournament != other.idTournament)
-		return false;
 	if (idTournamentGame != other.idTournamentGame)
+		return false;
+	if (idTournamentStage != other.idTournamentStage)
 		return false;
 	if (resultOfGame != other.resultOfGame)
 		return false;

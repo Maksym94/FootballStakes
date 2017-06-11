@@ -1,10 +1,14 @@
 package models;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -12,8 +16,8 @@ import javax.persistence.Table;
 public class TournamentCommandModelImpl implements CommandModel{
 	
 	@Id
-	@Column(name="id_tournament_command")
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "id_tournament_command")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int idTournamentCommand;
 	
 	@Column(name="command_name")
@@ -39,8 +43,9 @@ public class TournamentCommandModelImpl implements CommandModel{
 	@Column(name="goals_scored")
 	private int goalsScored;
 	
-	@Column(name="winning_cups")
-	private int winningCups;
+	@OneToMany
+	@JoinColumn(name="id_tournament_command", referencedColumnName="winner_cup_id_command")
+	private List<TournamentModelImpl> winnerCupsInTournaments;
 	
 	public int getIdTournamentCommand() {
 		return idTournamentCommand;
@@ -97,11 +102,11 @@ public class TournamentCommandModelImpl implements CommandModel{
 	public void setGoalsScored(int goalsScored) {
 		this.goalsScored = goalsScored;
 	}
-	public int getWinningCups() {
-		return winningCups;
+	public List<TournamentModelImpl> getWinnerCupsInTournaments() {
+		return winnerCupsInTournaments;
 	}
-	public void setWinningCups(int winningCups) {
-		this.winningCups = winningCups;
+	public void setWinnerCupsInTournaments(List<TournamentModelImpl> winnerCupsInTournaments) {
+		this.winnerCupsInTournaments = winnerCupsInTournaments;
 	}
 	@Override
 	public int hashCode() {
@@ -114,7 +119,6 @@ public class TournamentCommandModelImpl implements CommandModel{
 		result = prime * result + loseGames;
 		result = prime * result + ((photoPath == null) ? 0 : photoPath.hashCode());
 		result = prime * result + ((trainerName == null) ? 0 : trainerName.hashCode());
-		result = prime * result + winningCups;
 		result = prime * result + wonGames;
 		result = prime * result + yearFoundation;
 		return result;
@@ -154,13 +158,10 @@ public class TournamentCommandModelImpl implements CommandModel{
 				return false;
 		} else if (!trainerName.equals(other.trainerName))
 			return false;
-		if (winningCups != other.winningCups)
-			return false;
 		if (wonGames != other.wonGames)
 			return false;
 		if (yearFoundation != other.yearFoundation)
 			return false;
 		return true;
 	}
-
 }

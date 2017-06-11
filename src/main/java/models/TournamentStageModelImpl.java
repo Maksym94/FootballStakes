@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="tournament_stages")
-public class TournamentStageImpl {
+public class TournamentStageModelImpl {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -94,6 +94,42 @@ public class TournamentStageImpl {
 
 	public void setFinishedStage(boolean finishedStage) {
 		this.finishedStage = finishedStage;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (active ? 1231 : 1237);
+		result = prime * result + (finishedStage ? 1231 : 1237);
+		result = prime * result + idTournament;
+		result = prime * result + idTournamentStage;
+		long temp;
+		temp = Double.doubleToLongBits(stage);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TournamentStageModelImpl other = (TournamentStageModelImpl) obj;
+		if (active != other.active)
+			return false;
+		if (finishedStage != other.finishedStage)
+			return false;
+		if (idTournament != other.idTournament)
+			return false;
+		if (idTournamentStage != other.idTournamentStage)
+			return false;
+		if (Double.doubleToLongBits(stage) != Double.doubleToLongBits(other.stage))
+			return false;
+		return true;
 	}
 
 }

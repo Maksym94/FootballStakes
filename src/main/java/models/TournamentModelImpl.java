@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -38,9 +39,16 @@ public class TournamentModelImpl {
 	@Column(name="finished_tournament")
 	private boolean finishedTournament;
 	
+	@Column(name="winner_cup_id_command")
+	private int winnerCupIdCommand;
+	
 	@OneToMany
 	@JoinColumn(name="id_tournament", referencedColumnName="id_tournament")
-	private List<TournamentStageImpl> tournamentStages;
+	private List<TournamentStageModelImpl> tournamentStages;
+
+	@ManyToOne
+	@JoinColumn(name="winner_cup_id_command")
+	private TournamentCommandModelImpl winnerCommand;
 
 	public int getIdTournament() {
 		return idTournament;
@@ -66,11 +74,11 @@ public class TournamentModelImpl {
 		this.yearOfPlaying = yearOfPlaying;
 	}
 
-	public List<TournamentStageImpl> getTournamentStages() {
+	public List<TournamentStageModelImpl> getTournamentStages() {
 		return tournamentStages;
 	}
 
-	public void setTournamentStages(List<TournamentStageImpl> tournamentStages) {
+	public void setTournamentStages(List<TournamentStageModelImpl> tournamentStages) {
 		this.tournamentStages = tournamentStages;
 	}
 
@@ -107,15 +115,32 @@ public class TournamentModelImpl {
 		this.active = active;
 	}
 
+	public int getWinnerCupIdCommand() {
+		return winnerCupIdCommand;
+	}
+
+	public void setWinnerCupIdCommand(int winnerCupIdCommand) {
+		this.winnerCupIdCommand = winnerCupIdCommand;
+	}
+
+	public TournamentCommandModelImpl getWinnerCommand() {
+		return winnerCommand;
+	}
+
+	public void setWinnerCommand(TournamentCommandModelImpl winnerCommand) {
+		this.winnerCommand = winnerCommand;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (finishedTournament ? 1231 : 1237);
+		result = prime * result + (active ? 1231 : 1237);
 		result = prime * result + idTournament;
 		result = prime * result + maxAmountOfCommands;
 		result = prime * result + maxAmountOfStages;
 		result = prime * result + ((tournamentName == null) ? 0 : tournamentName.hashCode());
+		result = prime * result + winnerCupIdCommand;
 		result = prime * result + yearOfPlaying;
 		return result;
 	}
@@ -129,7 +154,7 @@ public class TournamentModelImpl {
 		if (getClass() != obj.getClass())
 			return false;
 		TournamentModelImpl other = (TournamentModelImpl) obj;
-		if (finishedTournament != other.finishedTournament)
+		if (active != other.active)
 			return false;
 		if (idTournament != other.idTournament)
 			return false;
@@ -142,10 +167,11 @@ public class TournamentModelImpl {
 				return false;
 		} else if (!tournamentName.equals(other.tournamentName))
 			return false;
+		if (winnerCupIdCommand != other.winnerCupIdCommand)
+			return false;
 		if (yearOfPlaying != other.yearOfPlaying)
 			return false;
 		return true;
 	}
-
 
 }

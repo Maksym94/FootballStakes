@@ -68,18 +68,14 @@
 	<constructor-arg ref="template"></constructor-arg>
 	</bean>
 	
-	<!-- <bean id="accountInfo" class="dbModels.AccountInfoSpring">
+	<bean id="tournamentStage" class="tournamentPlay.TournamentStageImpl">
 	<constructor-arg ref="template"></constructor-arg>
 	</bean>
-	<bean id="createTablesData" class="dbModels.CreateTablesDataSpring">
+	
+	<bean id="tournament" class="tournamentPlay.TournamentImpl">
 	<constructor-arg ref="template"></constructor-arg>
 	</bean>
-	<bean id="logClass" class="dbModels.LogInClassSpring">
-	<constructor-arg ref="template"></constructor-arg>
-	</bean>
-	<bean id="adminDataBase" class="dbModels.AdminDataBaseSpring">
-	<constructor-arg ref="template"></constructor-arg>
-	</bean> -->
+
 	<context:annotation-config/>
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 </beans>
