@@ -33,11 +33,11 @@ public class TournamentStageModelImpl {
 	private boolean finishedStage;
 	
 	@OneToMany
-	@JoinColumn(name="id_tournament_stage", referencedColumnName="id_tournament_stage")
+	@JoinColumn(/*name="id_tournament_stage", */referencedColumnName="id_tournament_stage")
 	private List<TournamentGameModelImpl> tournamentGames;
 	
 	@ManyToOne
-	@JoinColumn(name="id_tournament")
+	@JoinColumn(name="id_tournament", insertable=false, updatable=false)
 	private TournamentModelImpl tournament;
 
 	public int getIdTournamentStage() {

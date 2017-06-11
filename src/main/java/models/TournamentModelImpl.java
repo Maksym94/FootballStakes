@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -39,10 +40,10 @@ public class TournamentModelImpl {
 	@Column(name="finished_tournament")
 	private boolean finishedTournament;
 	
-	@Column(name="winner_cup_id_command")
-	private int winnerCupIdCommand;
+	/*@Column(name="winner_cup_id_command")
+	private int winnerCupIdCommand;*/
 	
-	@OneToMany
+	@OneToMany(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_tournament", referencedColumnName="id_tournament")
 	private List<TournamentStageModelImpl> tournamentStages;
 
@@ -115,13 +116,13 @@ public class TournamentModelImpl {
 		this.active = active;
 	}
 
-	public int getWinnerCupIdCommand() {
+	/*public int getWinnerCupIdCommand() {
 		return winnerCupIdCommand;
 	}
 
 	public void setWinnerCupIdCommand(int winnerCupIdCommand) {
 		this.winnerCupIdCommand = winnerCupIdCommand;
-	}
+	}*/
 
 	public TournamentCommandModelImpl getWinnerCommand() {
 		return winnerCommand;
@@ -140,7 +141,7 @@ public class TournamentModelImpl {
 		result = prime * result + maxAmountOfCommands;
 		result = prime * result + maxAmountOfStages;
 		result = prime * result + ((tournamentName == null) ? 0 : tournamentName.hashCode());
-		result = prime * result + winnerCupIdCommand;
+		//result = prime * result + winnerCupIdCommand;
 		result = prime * result + yearOfPlaying;
 		return result;
 	}
@@ -167,8 +168,8 @@ public class TournamentModelImpl {
 				return false;
 		} else if (!tournamentName.equals(other.tournamentName))
 			return false;
-		if (winnerCupIdCommand != other.winnerCupIdCommand)
-			return false;
+		/*if (winnerCupIdCommand != other.winnerCupIdCommand)
+			return false;*/
 		if (yearOfPlaying != other.yearOfPlaying)
 			return false;
 		return true;

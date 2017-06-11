@@ -46,10 +46,10 @@ path="idTournamentCommand"/> </td></tr>
 <td><form:label path="goalsScored">Goals scored</form:label></td>
 <td><form:input path="goalsScored"/></td>
 </tr>
-<tr>
-<td><form:label path="winningCups">Winning cups:</form:label></td>
-<td><form:input path="winningCups"/></td>
-</tr>
+<%-- <tr>
+<td><form:label path="winnerCupsInTournaments">Winning cups:</form:label></td>
+<td><form:input path="winnerCupsInTournaments"/></td>
+</tr> --%>
 <tr>
 <td><form:label path="yearFoundation">Year of foundation</form:label></td>
 <td><form:input path="yearFoundation"/></td>

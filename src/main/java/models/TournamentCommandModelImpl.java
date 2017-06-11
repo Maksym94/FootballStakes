@@ -4,10 +4,10 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -43,8 +43,8 @@ public class TournamentCommandModelImpl implements CommandModel{
 	@Column(name="goals_scored")
 	private int goalsScored;
 	
-	@OneToMany
-	@JoinColumn(name="id_tournament_command", referencedColumnName="winner_cup_id_command")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy="winnerCommand")
+	/*@JoinColumn(referencedColumnName="winner_cup_id_command")*/
 	private List<TournamentModelImpl> winnerCupsInTournaments;
 	
 	public int getIdTournamentCommand() {

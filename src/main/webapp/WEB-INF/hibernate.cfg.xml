@@ -30,10 +30,11 @@
   <mapping class="models.RegularCommandModelImpl"/>
   <mapping class="models.RegularGameModelImpl"/>
   <mapping class="models.RegularGoalsScoredModelImpl"/>
+  <mapping class="models.TournamentModelImpl"/>
   <mapping class="models.TournamentCommandModelImpl"/>
   <mapping class="models.TournamentGameModelImpl"/>
   <mapping class="models.TournamentStageModelImpl"/>
-  <mapping class="models.TournamentModelImpl"/>
+  
    
 
   <!-- Mapping files -->
