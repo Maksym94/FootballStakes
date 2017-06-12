@@ -1,2 +1,0 @@
-This folder is created to save pictures from FootballStakes Project. It should be put outside from the project folder. There are some settings in project how to specify 
-this folder. It's insude context.xml configuration. Bean id regularUploadPath and tournamentUploadPath.
