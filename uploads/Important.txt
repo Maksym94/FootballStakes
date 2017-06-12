@@ -1,0 +1,2 @@
+This folder is created to save pictures to regular and tournament commands. It should be placed outside the project. To configure settings about upload folder you can do
+inside context.xml file of the project beans id regularUploadPath and tournamentUploadPath.
