@@ -18,10 +18,10 @@ public class AdminEditTournamentContr {
 	@RequestMapping(value = "/show-tournament", method = RequestMethod.GET)
 	public String name(Model model) {
 		TournamentModelImpl lastTournament= tournamentImpl.getLastTournament();
-		System.out.println("Amount of Stages "+lastTournament.getMaxAmountOfStages());
+		/*System.out.println("Amount of Stages "+lastTournament.getMaxAmountOfStages());
 		for (int i = 0; i < lastTournament.getMaxAmountOfStages(); i++) {
 			System.out.println("pow index "+ i+" value " +Math.pow(2, i));
-		}
+		}*/
 		
         model.addAttribute("tournament", lastTournament);
 		return "showTournament";
