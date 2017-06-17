@@ -2,10 +2,12 @@ package tournamentPlay;
 
 import java.util.List;
 
+import models.TournamentStageModelImpl;
+
 public interface TournamentStage {
-	public boolean createStage(TournamentStageImpl tournamentStage);
-	public boolean editStage(TournamentStageImpl tournamentStage);
-	public TournamentStageImpl getStage(int id);
-	public List<TournamentStageImpl> getAllStages();
-    public void deleteStage(TournamentStageImpl tournamentStage);
+	public boolean createStage(TournamentStageModelImpl tournamentStage);
+	public boolean editStage(TournamentStageModelImpl tournamentStage);
+	public TournamentStageModelImpl getStage(int id);
+	public List<TournamentStageModelImpl> getAllStages();
+    public void deleteStage(TournamentStageModelImpl tournamentStage);
 }

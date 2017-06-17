@@ -21,9 +21,6 @@ public class TournamentStageModelImpl {
 	@Column(name="id_tournament_stage")
 	private int idTournamentStage;
 	
-	@Column(name="id_tournament")
-	private int idTournament;
-	
 	private double stage;
 	
 	@Column(name="active")
@@ -37,7 +34,7 @@ public class TournamentStageModelImpl {
 	private List<TournamentGameModelImpl> tournamentGames;
 	
 	@ManyToOne
-	@JoinColumn(name="id_tournament", insertable=false, updatable=false)
+	@JoinColumn(name="id_tournament")
 	private TournamentModelImpl tournament;
 
 	public int getIdTournamentStage() {
@@ -48,13 +45,13 @@ public class TournamentStageModelImpl {
 		this.idTournamentStage = idTournamentStage;
 	}
 
-	public int getIdTournament() {
+	/*public int getIdTournament() {
 		return idTournament;
 	}
 
 	public void setIdTournament(int idTournament) {
 		this.idTournament = idTournament;
-	}
+	}*/
 
 	public double getStage() {
 		return stage;
@@ -102,7 +99,7 @@ public class TournamentStageModelImpl {
 		int result = 1;
 		result = prime * result + (active ? 1231 : 1237);
 		result = prime * result + (finishedStage ? 1231 : 1237);
-		result = prime * result + idTournament;
+		//result = prime * result + idTournament;
 		result = prime * result + idTournamentStage;
 		long temp;
 		temp = Double.doubleToLongBits(stage);
@@ -123,8 +120,8 @@ public class TournamentStageModelImpl {
 			return false;
 		if (finishedStage != other.finishedStage)
 			return false;
-		if (idTournament != other.idTournament)
-			return false;
+		/*if (idTournament != other.idTournament)
+			return false;*/
 		if (idTournamentStage != other.idTournamentStage)
 			return false;
 		if (Double.doubleToLongBits(stage) != Double.doubleToLongBits(other.stage))

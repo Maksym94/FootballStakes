@@ -12,9 +12,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Show about tournament</title>
 <style>
-div.check {
-	speak: Hi. I am Maksym. I would like to check it:1234567890
-}
 
 .parent {
 	display: flex;
