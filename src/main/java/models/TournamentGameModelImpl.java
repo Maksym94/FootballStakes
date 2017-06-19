@@ -21,11 +21,11 @@ public class TournamentGameModelImpl {
 @Column(name="id_tournament_game")
 private int idTournamentGame;
 
-@Column(name="id_command1")
+/*@Column(name="id_command1")
 private int idCommand1;
 
 @Column(name="id_command2")
-private int idCommand2;
+private int idCommand2;*/
 
 @Column(name="score_command1")
 private int scoreCommand1;
@@ -53,11 +53,11 @@ private int resultOfGame;
 private int idTournamentStage;
 
 @ManyToOne
-@JoinColumn(name="id_command1", insertable=false, updatable=false)
+@JoinColumn(name="id_command1")
 private TournamentCommandModelImpl tournamentCommand1;
 
 @ManyToOne
-@JoinColumn(name="id_command2",insertable=false, updatable=false)
+@JoinColumn(name="id_command2")
 private TournamentCommandModelImpl tournamentCommand2;
 
 public int getIdTournamentGame() {
@@ -68,7 +68,7 @@ public void setIdTournamentGame(int idTournamentGame) {
 	this.idTournamentGame = idTournamentGame;
 }
 
-public int getIdCommand1() {
+/*public int getIdCommand1() {
 	return idCommand1;
 }
 
@@ -82,7 +82,7 @@ public int getIdCommand2() {
 
 public void setIdCommand2(int idCommand2) {
 	this.idCommand2 = idCommand2;
-}
+}*/
 
 public int getScoreCommand1() {
 	return scoreCommand1;
@@ -174,8 +174,8 @@ public int hashCode() {
 	temp = Double.doubleToLongBits(coefficientSecondCommand);
 	result = prime * result + (int) (temp ^ (temp >>> 32));
 	result = prime * result + (finishedGame ? 1231 : 1237);
-	result = prime * result + idCommand1;
-	result = prime * result + idCommand2;
+	/*result = prime * result + idCommand1;
+	result = prime * result + idCommand2;*/
 	result = prime * result + idTournamentGame;
 	result = prime * result + idTournamentStage;
 	result = prime * result + resultOfGame;
@@ -202,10 +202,10 @@ public boolean equals(Object obj) {
 		return false;
 	if (finishedGame != other.finishedGame)
 		return false;
-	if (idCommand1 != other.idCommand1)
+	/*if (idCommand1 != other.idCommand1)
 		return false;
 	if (idCommand2 != other.idCommand2)
-		return false;
+		return false;*/
 	if (idTournamentGame != other.idTournamentGame)
 		return false;
 	if (idTournamentStage != other.idTournamentStage)

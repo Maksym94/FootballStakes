@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
 @Table(name="tournament_commands")
 public class TournamentCommandModelImpl implements CommandModel{
@@ -43,7 +46,8 @@ public class TournamentCommandModelImpl implements CommandModel{
 	@Column(name="goals_scored")
 	private int goalsScored;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy="winnerCommand")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy="winnerCommand" )
+	@Fetch(value = FetchMode.SUBSELECT)
 	/*@JoinColumn(referencedColumnName="winner_cup_id_command")*/
 	private List<TournamentModelImpl> winnerCupsInTournaments;
 	

@@ -21,27 +21,30 @@ public class TournamentGameImpl implements TournamentGame{
     @Transactional
 	@Override
 	public boolean createGame(TournamentGameModelImpl tournamentGame) {
-		if(tournamentGame.getIdCommand1()== tournamentGame.getIdCommand2()){
+		if(tournamentGame.getTournamentCommand1().getIdTournamentCommand()== 
+				tournamentGame.getTournamentCommand2().getIdTournamentCommand()){
 			return false;
 		}
 		if(tournamentGame.getCoefficientFirstCommand()==0 ||
 				tournamentGame.getCoefficientSecondCommand()==0){
 			return false;
 		}
-		//This is not finished logic, the main idea is to add dependence from progress and id 
+		//This is not finished logic, the main idea is to add dependence from stage and id 
 		//of tournament
 		@SuppressWarnings("unchecked")
 		List<Object[]> twoCommandsIndexes= template.getSessionFactory().openSession()
 				.createQuery("select idCommand1, idCommand2 from TournamentGameModelImpl"
-						+ "order by idTournamentGame").list();
+						+ " order by idTournamentGame").list();
 		if(twoCommandsIndexes!=null){
 			for (Object[] twoId : twoCommandsIndexes) {
 				int firstCommandId= (int) twoId[0];
 				int secondCommandId= (int) twoId[1];
-				if(firstCommandId==tournamentGame.getIdCommand1()
-						&&secondCommandId==tournamentGame.getIdCommand2()||
-								secondCommandId==tournamentGame.getIdCommand1()
-						&&firstCommandId==tournamentGame.getIdCommand2()){
+				if(firstCommandId==tournamentGame.getTournamentCommand1().getIdTournamentCommand()
+						&&secondCommandId==tournamentGame.getTournamentCommand2()
+						.getIdTournamentCommand()|| secondCommandId==tournamentGame
+						.getTournamentCommand1().getIdTournamentCommand()
+						&&firstCommandId==tournamentGame.getTournamentCommand2()
+						.getIdTournamentCommand()){
 					return false;
 				}
 			}

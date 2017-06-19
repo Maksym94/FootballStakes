@@ -53,10 +53,10 @@ accept="image/jpeg,image/png,image/gif"></td>
 <td><form:label path="goalsScored">Goals scored</form:label></td>
 <td><form:input path="goalsScored"/></td>
 </tr>
-<tr>
+<%-- <tr>
 <td><form:label path="winningCups">Winning cups</form:label></td>
 <td><form:input path="winningCups"/></td>
-</tr>
+</tr> --%>
 <tr>
 <td colspan="2">
 <input type="submit" value="Submit"/>    

@@ -34,7 +34,6 @@
   <mapping class="models.TournamentCommandModelImpl"/>
   <mapping class="models.TournamentGameModelImpl"/>
   <mapping class="models.TournamentStageModelImpl"/>
-  
    
 
   <!-- Mapping files -->
