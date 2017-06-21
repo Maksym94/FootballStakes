@@ -41,12 +41,13 @@ public class AdminEditTournamentGameContr {
 	 @RequestMapping(value = "/delete-tournament-game/{id}")
 		public String deleteTournamentGame(@PathVariable("id") int id) {
             tournamentGame.deleteGame(tournamentGame.getGame(id));
-			return "showTournamentCommands";
+			return "redirect:/show-tournament-games/";
 		}
 	 
 	 @RequestMapping(value = "/show-tournament-game/{id}")
 	public String showTournamentCommand(@PathVariable("id") int id,Model model) {
 	TournamentGameModelImpl game =  tournamentGame.getGame(id);
+	if(game!=null)
 		 model.addAttribute("startDate", game.getStartGameDate().toString(FORMATTER));
 		 model.addAttribute("tournamentGame", game);
 		return "showTournamentGame";

@@ -12,8 +12,8 @@
 <title>Show about tournament game</title>
 </head>
 <body>
-<h3> ${game.tournamentCommand1.commandName} VS
-${game.tournamentCommand2.commandName}</h3><br>
+<h3> ${tournamentGame.tournamentCommand1.commandName} VS
+${tournamentGame.tournamentCommand2.commandName}</h3><br>
 
 <table>
 <tr>

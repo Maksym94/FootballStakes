@@ -40,7 +40,7 @@ modelAttribute="tournamentStage">
 <tr>
 <td>${tournamentGame.tournamentCommand1.commandName}:${tournamentGame.tournamentCommand2
 .commandName}</td>
-<td><form:checkbox path="tournamentGames[${status.index}].action"/></td>
+<td><form:checkbox path="tournamentGames[${status.index}]" value="tournamentGames[${status.index}]"/></td>
 </tr>
 </c:forEach>
 <tr>

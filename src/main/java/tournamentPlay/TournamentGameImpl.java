@@ -15,7 +15,6 @@ public class TournamentGameImpl implements TournamentGame{
 	private HibernateTemplate template;
 
 	public TournamentGameImpl(HibernateTemplate template) {
-		super();
 		this.template = template;
 	}
     @Transactional
@@ -33,12 +32,15 @@ public class TournamentGameImpl implements TournamentGame{
 		//of tournament
 		@SuppressWarnings("unchecked")
 		List<Object[]> twoCommandsIndexes= template.getSessionFactory().openSession()
-				.createQuery("select idCommand1, idCommand2 from TournamentGameModelImpl"
+				.createQuery("select tournamentCommand1.idTournamentCommand, "
+						+ "tournamentCommand2.idTournamentCommand from TournamentGameModelImpl"
 						+ " order by idTournamentGame").list();
+		
 		if(twoCommandsIndexes!=null){
 			for (Object[] twoId : twoCommandsIndexes) {
 				int firstCommandId= (int) twoId[0];
 				int secondCommandId= (int) twoId[1];
+				
 				if(firstCommandId==tournamentGame.getTournamentCommand1().getIdTournamentCommand()
 						&&secondCommandId==tournamentGame.getTournamentCommand2()
 						.getIdTournamentCommand()|| secondCommandId==tournamentGame
@@ -50,7 +52,7 @@ public class TournamentGameImpl implements TournamentGame{
 			}
 		}
 		template.save(tournamentGame);
-		return false;
+		return true;
 	}
 
     @Transactional

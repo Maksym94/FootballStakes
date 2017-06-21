@@ -65,8 +65,8 @@ data-template="DD / MM / YYYY     HH : mm" name="startDate" value="${startDate}"
 <form:option value="2" label="Draw"></form:option>
 </form:select> </td>
 </tr>
-<form:hidden path="idCommand1"/>
-<form:hidden path="idCommand2"/>
+<form:hidden path="tournamentCommand1.idTournamentCommand"/>
+<form:hidden path="tournamentCommand2.idTournamentCommand"/>
 <tr><td><input type="submit" value="Confirm"></td>
 </tr>
 </table>

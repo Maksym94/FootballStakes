@@ -50,7 +50,7 @@ private boolean finishedGame;
 private int resultOfGame;
 
 @Column(name="id_tournament_stage")
-private int idTournamentStage;
+private Integer idTournamentStage;
 
 @ManyToOne
 @JoinColumn(name="id_command1")
@@ -140,11 +140,11 @@ public void setResultOfGame(int resultOfGame) {
 	this.resultOfGame = resultOfGame;
 }
 
-public int getIdTournamentStage() {
+public Integer getIdTournamentStage() {
 	return idTournamentStage;
 }
 
-public void setIdTournamentStage(int idTournamentStage) {
+public void setIdTournamentStage(Integer idTournamentStage) {
 	this.idTournamentStage = idTournamentStage;
 }
 
@@ -174,10 +174,8 @@ public int hashCode() {
 	temp = Double.doubleToLongBits(coefficientSecondCommand);
 	result = prime * result + (int) (temp ^ (temp >>> 32));
 	result = prime * result + (finishedGame ? 1231 : 1237);
-	/*result = prime * result + idCommand1;
-	result = prime * result + idCommand2;*/
 	result = prime * result + idTournamentGame;
-	result = prime * result + idTournamentStage;
+	result = prime * result + ((idTournamentStage == null) ? 0 : idTournamentStage.hashCode());
 	result = prime * result + resultOfGame;
 	result = prime * result + scoreCommand1;
 	result = prime * result + scoreCommand2;
@@ -194,21 +192,18 @@ public boolean equals(Object obj) {
 	if (getClass() != obj.getClass())
 		return false;
 	TournamentGameModelImpl other = (TournamentGameModelImpl) obj;
-	if (Double.doubleToLongBits(coefficientFirstCommand) != 
-			Double.doubleToLongBits(other.coefficientFirstCommand))
+	if (Double.doubleToLongBits(coefficientFirstCommand) != Double.doubleToLongBits(other.coefficientFirstCommand))
 		return false;
-	if (Double.doubleToLongBits(coefficientSecondCommand) != 
-			Double.doubleToLongBits(other.coefficientSecondCommand))
+	if (Double.doubleToLongBits(coefficientSecondCommand) != Double.doubleToLongBits(other.coefficientSecondCommand))
 		return false;
 	if (finishedGame != other.finishedGame)
 		return false;
-	/*if (idCommand1 != other.idCommand1)
-		return false;
-	if (idCommand2 != other.idCommand2)
-		return false;*/
 	if (idTournamentGame != other.idTournamentGame)
 		return false;
-	if (idTournamentStage != other.idTournamentStage)
+	if (idTournamentStage == null) {
+		if (other.idTournamentStage != null)
+			return false;
+	} else if (!idTournamentStage.equals(other.idTournamentStage))
 		return false;
 	if (resultOfGame != other.resultOfGame)
 		return false;

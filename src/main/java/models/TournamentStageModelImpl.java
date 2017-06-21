@@ -2,6 +2,7 @@ package models;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,12 +25,12 @@ public class TournamentStageModelImpl {
 	private double stage;
 	
 	@Column(name="active")
-	private boolean active;
+	private boolean active; 
 	
 	@Column(name="finished_stage")
 	private boolean finishedStage;
 	
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="id_tournament_stage", referencedColumnName="id_tournament_stage")
 	private List<TournamentGameModelImpl> tournamentGames;
 	

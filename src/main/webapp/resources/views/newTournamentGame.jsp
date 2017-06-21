@@ -17,10 +17,10 @@
 modelAttribute="tournamentGame">
 <table>
 <tr>
-<td><form:select path="idCommand1" title="Choose first command">
+<td><form:select path="tournamentCommand1.idTournamentCommand" title="Choose first command">
 <form:options items="${tournamentCommands}" itemLabel="commandName" itemValue="idTournamentCommand"/>
 </form:select></td>
-<td><form:select path="idCommand2" title="Choose second command">
+<td><form:select path="tournamentCommand2.idTournamentCommand" title="Choose second command">
 <form:options items="${tournamentCommands}" itemLabel="commandName" itemValue="idTournamentCommand"/>
 </form:select></td>
 <form:hidden path="scoreCommand1"/><form:hidden path="scoreCommand2"/>

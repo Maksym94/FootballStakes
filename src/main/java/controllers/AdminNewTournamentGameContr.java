@@ -37,9 +37,9 @@ public class AdminNewTournamentGameContr {
 	 {
 		tournamentGameModel.setStartGameDate(FORMATTER.parseDateTime(date));
         if(tournamentGame.createGame(tournamentGameModel)){
-        	return "/show-tournament-game/"+tournamentGameModel.getIdTournamentGame();
+        	return "redirect:/show-tournament-game/"+tournamentGameModel.getIdTournamentGame();
         }
-		return "newTournamentGame";
+		return "redirect:/new-tournament-game";
 	}
 
 }

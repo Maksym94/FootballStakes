@@ -75,6 +75,6 @@ private File tournamentCommandPhotoPath;
 	@RequestMapping(value="/delete-tournament-command/{id}")
 	public String deleteTournamentCommand(@PathVariable("id") int id){
 		tournamentCommand.deleteCommand(tournamentCommand.getCommandById(id));
-		return "redirect: /show-tournament-commands";
+		return "redirect:/show-tournament-commands";
 	}
 }
