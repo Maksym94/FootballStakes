@@ -29,9 +29,12 @@ modelAttribute="tournamentStage">
 </tr>
 <tr>
 <td><form:label path="tournament">Choose tournament</form:label></td>
-<td><form:select path="tournament">
-<form:options items="${tournaments}" itemLabel="tournamentName" />
-</form:select></td>
+<td>
+<select name="idTournament">
+<c:forEach items="${tournaments}" var="tournament">
+<option value="${tournament.idTournament}">${tournament.tournamentName}</option>
+</c:forEach>
+</select></td>
 </tr>
 <tr>
 <td><form:label path="tournamentGames">Tournament games</form:label></td>
@@ -40,7 +43,7 @@ modelAttribute="tournamentStage">
 <tr>
 <td>${tournamentGame.tournamentCommand1.commandName}:${tournamentGame.tournamentCommand2
 .commandName}</td>
-<td><form:checkbox path="tournamentGames[${status.index}]" value="tournamentGames[${status.index}]"/></td>
+<td><input name="selectedGames" type="checkbox" value="${tournamentGame.idTournamentGame}"> </td>
 </tr>
 </c:forEach>
 <tr>

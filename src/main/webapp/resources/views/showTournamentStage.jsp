@@ -27,7 +27,7 @@
 <tr>
 <td><img alt="command1" src="${contextPath}/${tournamentGame.tournamentCommand1.photoPath}" 
 height="64" width="64"></td>
-<td><img alt="command1" src="${contextPath}/${tournamentGame.tournamentCommand2.photoPath}" 
+<td><img alt="command2" src="${contextPath}/${tournamentGame.tournamentCommand2.photoPath}" 
 height="64" width="64"></td>
 </tr>
 <tr>
@@ -37,6 +37,9 @@ height="64" width="64"></td>
 </c:forEach>
 </c:if>
 </table>
+<form action="${contextPath}/edit-tournament-stage/${tournamentStage.idTournamentStage}">
 <input type="submit" value="Edit stage">
+</form>
+
 </body>
 </html>

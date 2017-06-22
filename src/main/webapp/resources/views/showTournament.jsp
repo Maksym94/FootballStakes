@@ -15,29 +15,26 @@
 
 .parent {
 	display: flex;
-	/* height: 300px;  */
 	background-color: white;
 	margin: 20px 0 20px 0;
 }
 
 .teach {
-	/* width: 100px;  
-    height: 100px; */
 	margin: auto;
-	border: solid 2px red;
+	/* border: solid 2px red; */
 }
 
 .child {
 	float: left;
 	text-align: center;
 	margin: auto;
-	border: solid 1px black;
+	 border: solid 1px black; 
 }
 
 .link {
 	text-align: center;
 	margin: auto;
-	border: solid 1px black;
+	/* border: solid 1px black; */
 }
 </style>
 </head>
@@ -93,14 +90,14 @@
 							<div class="child">
 								<img alt="tournament command1"
 									src="${contextPath}/${tournament.tournamentStages
-[descIndexList].tournamentGames[indexGames.index].tournamentCommand1.photoPath}">
+[descIndexList].tournamentGames[indexGames.index].tournamentCommand1.photoPath}" width="64" 
+height="64">
 							</div>
-							<div class="child">:</div>
-
 							<div class="child">
 								<img alt="tournament command2"
 									src="${contextPath}/${tournament.tournamentStages
-[descIndexList].tournamentGames[indexGames.index].tournamentCommand2.photoPath}">
+[descIndexList].tournamentGames[indexGames.index].tournamentCommand2.photoPath}" width="64" 
+height="64">
 							</div>
 
 							<div class="link">
@@ -109,8 +106,8 @@
 									.tournamentStages[descIndexList]
 .tournamentGames[indexGames.index].idTournamentGame}">${tournament
 .tournamentStages[descIndexList].tournamentGames[indexGames.index].tournamentCommand1
-.commandName}
-									VS
+.commandName}<c:if test="${tournament.maxAmountOfCommands ge 32}"><br></c:if> 
+VS <c:if test="${tournament.maxAmountOfCommands ge 32}"><br></c:if> 
 									${tournament.tournamentStages[descIndexList]
 									.tournamentGames[indexGames
 .index].tournamentCommand2.commandName}</a>
@@ -124,8 +121,6 @@
 									src="${contextPath}/uploads/tournament/tournamentDefault.jpg"
 									width="64" height="64">
 							</div>
-							<div class="child">:</div>
-
 							<div class="child">
 								<img alt="tournament command2"
 									src="${contextPath}/uploads/tournament/tournamentDefault.jpg"

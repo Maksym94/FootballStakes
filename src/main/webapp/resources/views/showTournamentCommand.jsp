@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<h3>${tournamentCommand.commandName}</h3><br>
+<h3>${tournamentCommand.commandName} national team</h3><br>
 
 <table>
 <tr>

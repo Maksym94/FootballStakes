@@ -12,8 +12,8 @@
 <title>Show about tournament game</title>
 </head>
 <body>
-<h3> ${tournamentGame.tournamentCommand1.commandName} VS
-${tournamentGame.tournamentCommand2.commandName}</h3><br>
+<h3> ${tournamentGame.tournamentCommand1.commandName} national team VS
+${tournamentGame.tournamentCommand2.commandName} national team</h3><br>
 
 <table>
 <tr>
@@ -24,8 +24,11 @@ ${tournamentGame.tournamentCommand2.commandName}</h3><br>
 </td> 
 </tr>
 <tr>
-<td>${tournamentGame.tournamentCommand1.commandName}</td>
-<td>${tournamentGame.tournamentCommand2.commandName}</td>
+<td><a href="${contextPath}/show-tournament-command/${tournamentGame.tournamentCommand1
+.idTournamentCommand}">${tournamentGame.tournamentCommand1.commandName} national team</a></td>
+<td><a href="${contextPath}/show-tournament-command/${tournamentGame.tournamentCommand2
+.idTournamentCommand}">${tournamentGame.tournamentCommand2.commandName} national team</a></td>
+<%-- <td>${tournamentGame.tournamentCommand2.commandName} national team</td> --%>
 </tr>
 <tr>
 <td>Score ${tournamentGame.tournamentCommand1.commandName} </td><td>${tournamentGame.scoreCommand1}</td>
