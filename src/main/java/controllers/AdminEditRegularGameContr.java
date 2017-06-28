@@ -33,6 +33,13 @@ public class AdminEditRegularGameContr {
 		return "showRegularGames";
 	}
 	
+	@RequestMapping(value="/show-prettyRegular-games", method= RequestMethod.GET)
+	public String showPrettyRegulaGamesToEdit(Model model){
+		List<RegularGameModelImpl> games= regularGame.getAllGames();
+		model.addAttribute("regularGames", games);
+		return "showPrettyRegularGames";
+	}
+	
 	@RequestMapping(value="/show-regular-game/{id}")
 	public String showRegularGame(@PathVariable("id") int id, Model model){
 		RegularGameModelImpl game = regularGame.getGame(id);

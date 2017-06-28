@@ -30,7 +30,7 @@ public class AdminNewTournamentStageContr {
 	@RequestMapping(value = "/new-tournament-stage", method = RequestMethod.GET)
 	public String name(Model model) {
 		model.addAttribute("tournaments",tournamentImpl.getTournaments());
-		model.addAttribute("tournamentGames",tournamentGameImpl.getAllGames());
+		model.addAttribute("tournamentGames",tournamentGameImpl.getAllAvailableGames());
 		model.addAttribute("tournamentStage",new TournamentStageModelImpl());
 		//model.addAttribute("indexesOfSelectedGames",new ArrayList<Integer>());
 		return "newTournamentStage";

@@ -36,10 +36,17 @@ height="64" width="64"></td>
 </tr>
 </c:forEach>
 </c:if>
-</table>
-<form action="${contextPath}/edit-tournament-stage/${tournamentStage.idTournamentStage}">
+<tr>
+<td><form action="${contextPath}/edit-tournament-stage/${tournamentStage.idTournamentStage}">
 <input type="submit" value="Edit stage">
-</form>
+</form></td> 
+<td><form action="${contextPath}/delete-tournament-stage/${tournamentStage.idTournamentStage}">
+<input type="submit" value="Delete stage">
+</form></td> 
+</tr>
+</table>
+
+
 
 </body>
 </html>

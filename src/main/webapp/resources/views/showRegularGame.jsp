@@ -17,15 +17,16 @@ ${game.regularCommand2.commandName}</h3><br>
 
 <table>
 <tr>
-<td>
-<img alt="command1" src="${contextPath}/${game.regularCommand1.photoPath}" height="128" width="128">
-</td>
-<td><img alt="command2" src="${contextPath}/${game.regularCommand2.photoPath}" height="128" width="128">
-</td> 
+<td><img alt="command1" src="${contextPath}/${game.regularCommand1.photoPath}" height="128" 
+width="128"></td>
+<td><img alt="command2" src="${contextPath}/${game.regularCommand2.photoPath}" height="128" 
+width="128"></td> 
 </tr>
 <tr>
-<td>${game.regularCommand1.commandName}</td>
-<td>${game.regularCommand2.commandName}</td>
+<td><a href="${contextPath}/show-regular-command/${game.regularCommand1.idRegularCommand}">
+${game.regularCommand1.commandName}</a></td>
+<td><a href="${contextPath}/show-regular-command/${game.regularCommand2.idRegularCommand}">
+${game.regularCommand2.commandName}</a></td>
 </tr>
 <tr>
 <td>Score ${game.regularCommand1.commandName} </td><td>${game.scoreCommand1}</td>

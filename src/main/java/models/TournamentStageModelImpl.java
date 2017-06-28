@@ -2,7 +2,6 @@ package models;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -31,12 +30,12 @@ public class TournamentStageModelImpl {
 	@Column(name="finished_stage")
 	private boolean finishedStage;
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToMany(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_tournament_stage", referencedColumnName="id_tournament_stage")
 	private List<TournamentGameModelImpl> tournamentGames;
 	
 	@ManyToOne
-	@JoinColumn(name="id_tournament")
+	@JoinColumn(name="id_tournament", referencedColumnName="id_tournament")
 	private TournamentModelImpl tournament;
 
 	public int getIdTournamentStage() {

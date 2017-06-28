@@ -73,3 +73,15 @@ active TINYINT(1) NOT NULL,
 finished_tournament TINYINT(1) NOT NULL,
 winner_cup_id_command INT(11)
 );
+
+CREATE TABLE IF NOT EXISTS users(
+id_user INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+username VARCHAR(50) NOT NULL,
+balance DECIMAL(6,2),
+stakes_won TINYINT(6) DEFAULT 0,
+stakes_lose TINYINT(6) DEFAULT 0,
+money_won DECIMAL(6,2),
+money_lose DECIMAL(6,2),
+received_gift_money DECIMAL(6,2),
+sent_gift_money DECIMAL(6,2)
+);

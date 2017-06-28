@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 
 import models.TournamentGameModelImpl;
@@ -30,16 +31,17 @@ public class TournamentGameImpl implements TournamentGame{
 		}
 		//This is not finished logic, the main idea is to add dependence from stage and id 
 		//of tournament
-		@SuppressWarnings("unchecked")
+		/*@SuppressWarnings("unchecked")
 		List<Object[]> twoCommandsIndexes= template.getSessionFactory().openSession()
 				.createQuery("select tournamentCommand1.idTournamentCommand, "
-						+ "tournamentCommand2.idTournamentCommand from TournamentGameModelImpl"
-						+ " order by idTournamentGame").list();
+						+ "tournamentCommand2.idTournamentCommand, idTournamentStage "
+						+ "from TournamentGameModelImpl order by idTournamentGame").list();
 		
 		if(twoCommandsIndexes!=null){
 			for (Object[] twoId : twoCommandsIndexes) {
 				int firstCommandId= (int) twoId[0];
 				int secondCommandId= (int) twoId[1];
+				Integer idStage= (Integer)twoId[2];
 				
 				if(firstCommandId==tournamentGame.getTournamentCommand1().getIdTournamentCommand()
 						&&secondCommandId==tournamentGame.getTournamentCommand2()
@@ -50,7 +52,7 @@ public class TournamentGameImpl implements TournamentGame{
 					return false;
 				}
 			}
-		}
+		}*/
 		template.save(tournamentGame);
 		return true;
 	}
@@ -72,7 +74,21 @@ public class TournamentGameImpl implements TournamentGame{
 		@SuppressWarnings("unchecked")
 		List<TournamentGameModelImpl> games= (List<TournamentGameModelImpl>) 
 				template.findByCriteria(DetachedCriteria.forClass(TournamentGameModelImpl.class)
-						.addOrder(Order.asc("idTournamentGame")));
+						.addOrder(Order.asc("idTournamentGame"))
+						.setResultTransformer(DetachedCriteria.DISTINCT_ROOT_ENTITY));
+		if(games==null){
+			games= new ArrayList<>();
+		}
+		return games;
+	}
+	
+	@Override
+	public List<TournamentGameModelImpl>  getAllAvailableGames() {
+		@SuppressWarnings("unchecked")
+		List<TournamentGameModelImpl> games= (List<TournamentGameModelImpl>) 
+				template.findByCriteria(DetachedCriteria.forClass(TournamentGameModelImpl.class)
+						.addOrder(Order.asc("idTournamentGame")).add(Restrictions
+								.isNull("idTournamentStage")));
 		if(games==null){
 			games= new ArrayList<>();
 		}
@@ -84,5 +100,6 @@ public class TournamentGameImpl implements TournamentGame{
 		
 		return template.get(TournamentGameModelImpl.class, id);
 	}
+	
 
 }

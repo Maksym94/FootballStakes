@@ -78,6 +78,6 @@ private File regularCommandPhotoPath;
 	@RequestMapping(value="/delete-regular-command/{id}")
 	public String deleteRegularCommand(@PathVariable("id") int id){
 		regularCommand.deleteCommand(regularCommand.getCommandById(id));
-		return "redirect: /show-regular-commands";
+		return "redirect:/show-regular-commands";
 	}
 }

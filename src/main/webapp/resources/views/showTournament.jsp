@@ -39,7 +39,7 @@
 </style>
 </head>
 <body>
-
+<c:choose><c:when test="${tournament.tournamentName!=null}">
 	<h3 align="center">${tournament.tournamentName}</h3>
 
 	<div class="parent">
@@ -107,7 +107,7 @@ height="64">
 .tournamentGames[indexGames.index].idTournamentGame}">${tournament
 .tournamentStages[descIndexList].tournamentGames[indexGames.index].tournamentCommand1
 .commandName}<c:if test="${tournament.maxAmountOfCommands ge 32}"><br></c:if> 
-VS <c:if test="${tournament.maxAmountOfCommands ge 32}"><br></c:if> 
+: <c:if test="${tournament.maxAmountOfCommands ge 32}"><br></c:if> 
 									${tournament.tournamentStages[descIndexList]
 									.tournamentGames[indexGames
 .index].tournamentCommand2.commandName}</a>
@@ -133,5 +133,19 @@ VS <c:if test="${tournament.maxAmountOfCommands ge 32}"><br></c:if>
 			</c:forEach>
 		</div>
 	</c:forEach>
+<br>
+<table align="center">
+<tr>
+<td><form action="${contextPath}/edit-tournament/${tournament.idTournament}">
+<input type="submit" value="Edit tournament">
+</form></td>
+<td><form action="${contextPath}/delete-tournament/${tournament.idTournament}">
+<input type="submit" value="Delete tournament">
+</form></td>
+</tr>
+</table>
+</c:when>
+<c:otherwise><h3 align="center">No tournaments is available now</h3></c:otherwise>
+</c:choose>
 </body>
 </html>

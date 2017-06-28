@@ -15,6 +15,8 @@ public interface TournamentGame{
 	void deleteGame(TournamentGameModelImpl tournamentGame);
 
 	List<TournamentGameModelImpl> getAllGames();
+	
+	List <TournamentGameModelImpl> getAllAvailableGames();
 
 	TournamentGameModelImpl getGame(int id);
 }

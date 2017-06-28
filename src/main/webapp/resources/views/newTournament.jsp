@@ -25,7 +25,7 @@ modelAttribute="tournament" >
 <td><form:input path="yearOfPlaying"/></td>
 </tr>
 <tr>
-<td><form:label path="maxAmountOfCommands">Maximum amount of commands</form:label></td>
+<td><form:label path="maxAmountOfCommands">Size of tournament</form:label></td>
 <td><form:select path="maxAmountOfCommands">
 <form:option value="8" label="small 8 commands"></form:option>
 <form:option value="16" label="medium 16 commands"></form:option>

@@ -7,7 +7,7 @@ import models.TournamentModelImpl;
 public interface Tournament {
 	
 	public boolean createTournament(TournamentModelImpl tournament);
-	public boolean editTournament(TournamentModelImpl tournament);
+	public boolean editTournament(TournamentModelImpl tournament, boolean rebuiltTournament);
     public void deleteTournament(TournamentModelImpl tournament);
     public List<TournamentModelImpl> getTournaments();
     public TournamentModelImpl getTournament(int id);

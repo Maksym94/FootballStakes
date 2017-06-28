@@ -42,9 +42,10 @@ public class TournamentImpl implements Tournament{
 	
 	@Transactional
 	@Override
-	public boolean editTournament(TournamentModelImpl tournament) {
-		if(getTournament(tournament.getIdTournament()).isFinishedTournament()){
-			return false;
+	public boolean editTournament(TournamentModelImpl tournament, boolean rebuilt) {
+		if(rebuilt){
+			tournament.setMaxAmountOfStages(getNumberOfStages(tournament
+					.getMaxAmountOfCommands()));
 		}
 		template.update(tournament);
 		return true;
@@ -73,7 +74,7 @@ public class TournamentImpl implements Tournament{
 		return template.get(TournamentModelImpl.class,id);
 	}
 
-	private static int getNumberOfStages(int maxNumberOfCommands){
+	private static final int getNumberOfStages(int maxNumberOfCommands){
 		int count =0;
 		while(maxNumberOfCommands>1){
 			maxNumberOfCommands/=2;
@@ -84,9 +85,14 @@ public class TournamentImpl implements Tournament{
 
 	@Override
 	public TournamentModelImpl getLastTournament() {
-		TournamentModelImpl tournament = (TournamentModelImpl) template.findByCriteria(
+		@SuppressWarnings("unchecked")
+		List<TournamentModelImpl> tournamentResult = (List<TournamentModelImpl>) 
+				template.findByCriteria(
 				DetachedCriteria.forClass(TournamentModelImpl.class).addOrder(
-						Order.desc("idTournament"))).get(0);
-		return tournament;
+						Order.desc("idTournament")));
+		if(tournamentResult.size()>0){
+			return tournamentResult.get(0);
+		}
+		return new TournamentModelImpl();
 	}
 }
