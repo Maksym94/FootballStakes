@@ -1,8 +1,10 @@
 package webDispatcher;
 
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -24,6 +26,16 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 	public void addResourceHandlers(final ResourceHandlerRegistry registry) {
 	    registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 	}
+	
+	@Bean
+	public MessageSource messageSource(){
+		ReloadableResourceBundleMessageSource messageSource = 
+				new ReloadableResourceBundleMessageSource();
+		messageSource.addBasenames("classpath:userValidation","classpath:userMoneyValidation");
+		return messageSource;
+	}
+	
+	
 @Bean
 public ViewResolver viewResolver(){
 	InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();

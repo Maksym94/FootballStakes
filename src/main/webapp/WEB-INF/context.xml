@@ -42,6 +42,10 @@
 	<property name="uploadDirectory" value="/webapp/footballStakes/uploads/tournament"></property>
 	</bean>
 	
+	<bean id="userUploadPath" class="systemServices.FileUploadPath">
+	<property name="uploadDirectory" value="/webapp/footballStakes/uploads/user"></property>
+	</bean>
+	
 	<bean id="fileSystemResource" 
 	class="org.springframework.core.io.FileSystemResource" >
 	<constructor-arg  value="/webapp/footballStakes/uploads/temp/"></constructor-arg>
@@ -75,7 +79,21 @@
 	<bean id="tournament" class="tournamentPlay.TournamentImpl">
 	<constructor-arg ref="template"></constructor-arg>
 	</bean>
-
+	
+	<bean id="userManage" class="user.UserManageImpl">
+	<constructor-arg ref="template"></constructor-arg>
+	</bean>
+	
+	<bean id="userMoney" class="user.UserMoneyImpl">
+	<constructor-arg ref="template"></constructor-arg>
+	</bean>
+	
+	<bean id="userValidator" class="validators.UserValidator">
+	</bean>
+	
+	<bean id="userMoneyValidator" class="validators.UserMoneyValidator">
+	</bean>
+	
 	<context:annotation-config/>
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 </beans>

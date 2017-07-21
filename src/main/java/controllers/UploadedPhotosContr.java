@@ -23,8 +23,12 @@ public class UploadedPhotosContr {
 	
 	@Autowired
 	private FileUploadPath tournamentUploadPath;
+	
+	@Autowired
+	private FileUploadPath userUploadPath;
 
-	@RequestMapping(value ={ "/uploads/regularPlay/**","/uploads/tournament/**"},  
+	@RequestMapping(value ={ "/uploads/regularPlay/**","/uploads/tournament/**",
+			"uploads/user/**"},  
 			method = RequestMethod.GET)
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		String filename = URLDecoder.decode(req.getServletPath().substring(req.getServletPath()
@@ -33,6 +37,9 @@ public class UploadedPhotosContr {
 		File file;
 		if(req.getServletPath().contains("regularPlay")){
 			file= new File(regularUploadPath.getUploadDirectory(), filename);
+		}
+		else if(req.getServletPath().contains("user")){
+			file= new File(userUploadPath.getUploadDirectory(), filename);
 		}
 		else{
 			file= new File(tournamentUploadPath.getUploadDirectory(), filename);

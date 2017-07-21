@@ -85,3 +85,28 @@ money_lose DECIMAL(6,2),
 received_gift_money DECIMAL(6,2),
 sent_gift_money DECIMAL(6,2)
 );
+
+CREATE TABLE IF NOT EXISTS roles(
+id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+role_name VARCHAR(15) NOT NULL);
+
+CREATE TABLE IF NOT EXISTS credentials(
+id_login INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+login VARCHAR(100) NOT NULL, 
+password VARCHAR(255));
+
+CREATE TABLE IF NOT EXISTS user_operations(
+id_operation INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+id_user INT(11) NOT NULL,
+date VARCHAR(20) NOT NULL,
+amount DECIMAL(10,2) NOT NULL,
+current_balance DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS system_balance(
+id_system_money INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+received_bank_money DECIMAL(10,2) NOT NULL DEFAULT 0,
+received_users_money DECIMAL(10,2) NOT NULL DEFAULT 0,
+payed_users_money DECIMAL(10,2) NOT NULL DEFAULT 0,
+received_commissions_gift_money DECIMAL(10,2) NOT NULL DEFAULT 0
+);

@@ -6,7 +6,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
 @EnableWebMvc
-@ImportResource("/WEB-INF/context.xml")
+@ImportResource({"/WEB-INF/context.xml", "/WEB-INF/security.xml"})
 public class RootConfig {
 
 }

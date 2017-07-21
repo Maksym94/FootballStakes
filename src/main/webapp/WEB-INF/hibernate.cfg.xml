@@ -34,6 +34,11 @@
   <mapping class="models.TournamentCommandModelImpl"/>
   <mapping class="models.TournamentGameModelImpl"/>
   <mapping class="models.TournamentStageModelImpl"/>
+  <mapping class="models.RoleModelImpl"/>
+  <mapping class="models.LoginModelImpl"/>
+  <mapping class="models.UserModelImpl"/>
+  <mapping class="models.UserOperationModelImpl"/>
+  <mapping class="models.MoneyModelImpl"/>
    
 
   <!-- Mapping files -->

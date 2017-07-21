@@ -1,6 +1,9 @@
 package webDispatcher;
 
+import javax.servlet.Filter;
+
 import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.FrameworkServlet;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
@@ -25,6 +28,11 @@ public class WebDispatcher extends AbstractAnnotationConfigDispatcherServletInit
 		return new String[]{"/"};
 	}
 	
+	@Override
+	protected Filter[] getServletFilters() {
+		
+		return new Filter[]{new DelegatingFilterProxy("springSecurityFilterChain")};
+	}
 	@Override
 	protected FrameworkServlet createDispatcherServlet(WebApplicationContext servletAppContext) {
 		DispatcherServlet dispatcherServlet = new DispatcherServlet(servletAppContext);
