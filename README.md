@@ -16,4 +16,4 @@
  information about game. All actions is operating by administrator of this application, he managed about every game, coefficients 
  of the commands and so on. Also administrator can see any information about user and can edit it.
  
-<b>This project now currently in development</b>
+<b>This project currently interrupted for about 3 month</b>
