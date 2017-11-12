@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--suppress ALL -->
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xmlns:context="http://www.springframework.org/schema/context"
@@ -35,20 +36,20 @@
 	<bean id="resize" class="systemServices.ResizePicture"></bean>
 	
 	<bean id="regularUploadPath" class="systemServices.FileUploadPath">
-	<property name="uploadDirectory" value="/webapp/footballStakes/uploads/regularPlay"></property>
+	<property name="uploadDirectory" value="C:/webapp/footballStakes/uploads/regularPlay"></property>
 	</bean>
 	
 	<bean id="tournamentUploadPath" class="systemServices.FileUploadPath">
-	<property name="uploadDirectory" value="/webapp/footballStakes/uploads/tournament"></property>
+	<property name="uploadDirectory" value="C:/webapp/footballStakes/uploads/tournament"></property>
 	</bean>
 	
 	<bean id="userUploadPath" class="systemServices.FileUploadPath">
-	<property name="uploadDirectory" value="/webapp/footballStakes/uploads/user"></property>
+	<property name="uploadDirectory" value="C:/webapp/footballStakes/uploads/user"></property>
 	</bean>
 	
 	<bean id="fileSystemResource" 
 	class="org.springframework.core.io.FileSystemResource" >
-	<constructor-arg  value="/webapp/footballStakes/uploads/temp/"></constructor-arg>
+	<constructor-arg  value="C:/webapp/footballStakes/uploads/temp/"></constructor-arg>
 	</bean>
 	
 	<bean id="multipartResolver"

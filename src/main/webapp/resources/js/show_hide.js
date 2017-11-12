@@ -23,14 +23,14 @@ function show_hide(id)
 		
         if (klappText.style.display == 'none') {
                   klappText.style.display = 'block';
-                  klappBild.src = '/FootballStakes/resources/pictures/minus.gif';
+                  klappBild.src = '/resources/pictures/minus.gif';
 				  if(klappBild.id == 'picstickedtor'){
 				  klappBild.src = 'pic/hide_stickbox.png';
 				  }
                   klappBild.title = 'Hide';
         } else {
                   klappText.style.display = 'none';
-                  klappBild.src = '/FootballStakes/resources/pictures/plus.gif';
+                  klappBild.src = '/resources/pictures/plus.gif';
 				  if(klappBild.id == 'picstickedtor'){
 				  klappBild.src = 'pic/show_stickbox.png';
 				  }
